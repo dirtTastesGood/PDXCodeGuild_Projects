@@ -1,11 +1,24 @@
 import random
 
-eye_list = [":", ";", "=", "8"]
-nose_list = ["-","o"]
-mouth_list = [")", "(", "D", "*", "p", ">"]
+def getEyes(eyes):
+    return random.choice(eyes)
+def getNose(noses):
+    return random.choice(noses)
+def getMouth(mouths):
+    return random.choice(mouths)
 
-eyes = random.choice(eye_list)
-nose = random.choice(nose_list)
-mouth = random.choice(mouth_list)
+def main():
+    
+    eye_list = [":", ";", "=", "8"]
+    nose_list = ["-","^"]
+    mouth_list = [")", "(", "D", "*", "p", ">"]
 
-print(f"{eyes}{nose}{mouth}")
+    x=0
+    while x<5:
+        eyes = getEyes(eye_list)
+        nose = getNose(nose_list)
+        mouth = getMouth(mouth_list)
+        print(f"{eyes}{nose}{mouth}")
+        x += 1
+
+main()
