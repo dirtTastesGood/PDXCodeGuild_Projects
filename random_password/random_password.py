@@ -13,21 +13,24 @@ def getChars(letter_set, num):
         x += 1
     return chars
 
-def buildPassword(uppers, lowers):
-    charSet = list(uppers + lowers)
-    pwd = "".join(charSet)
-    
+def buildPassword(uppers, lowers, nums, specs):
+    charSet = list(uppers + lowers + nums + specs)
+    pwd = "".join(random.sample(charSet,len(charSet)))
     return pwd
 
 def main():
     print("\nWelcome to the random password generator.")
-    uppercaseNum = int(input("\nPlease selecte the number of uppercase characters you'd like your password to contain: "))
-    lowercaseNum = int(input("\nPlease selecte the number of lowercase characters you'd like your password to contain: "))
-   
-    bigs = getChars(string.ascii_uppercase, uppercaseNum)
-    littles = getChars(string.ascii_lowercase, lowercaseNum)
+    uppercase = int(input("\nPlease selecte the number of uppercase characters you'd like your password to contain: "))
+    lowercase = int(input("\nPlease selecte the number of lowercase characters you'd like your password to contain: "))
+    numbers = int(input("\nPlease selecte the number of number characters you'd like your password to contain: "))
+    specials = int(input("\nPlease selecte the number of special characters you'd like your password to contain: "))
 
-    password = buildPassword(bigs, littles)
+    bigs = getChars(string.ascii_uppercase, uppercase)
+    littles = getChars(string.ascii_lowercase, lowercase)
+    nums = getChars(string.digits, numbers)
+    specs = getChars(string.punctuation, specials)
+
+    password = buildPassword(bigs, littles, nums, specs)
     
     display_password(password)
 
