@@ -17,8 +17,13 @@ def coins_per_denom(total):
 
     return coin_totals
 
-def print_result(total, result):
-    output = f"{total} pennies converts to: \n\n"
+def dollars_to_pennies(dollars):
+    pennies = dollars * 100
+
+    return pennies
+
+def print_result(total, pennies, result):
+    output = f"${total} converts to {pennies} pennies which converts to: \n\n"
     for coin in result:
         output += f"{coin}: {result[coin]}\n"
 
@@ -26,10 +31,11 @@ def print_result(total, result):
 
 def main():
     while True:    
-        total = int(input("\nPlease enter an amount of pennies ('q' to quit): "))
-        result = coins_per_denom(total) # returns a dict
+        total = float(input("\nPlease enter number of dollars and cents ('q' to quit): $"))
+        pennies = int(dollars_to_pennies(total))
+        result = coins_per_denom(pennies) # returns a dict
 
-        print_result(total, result)
+        print_result(total, pennies, result)
         if str(total).lower == "q":
             break
 main()
