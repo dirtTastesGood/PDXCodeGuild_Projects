@@ -1,12 +1,24 @@
 def average(numbers):
     sum = 0
     for num in numbers:
-        sum += num
+        sum += int(num)
 
-    return sum/len(numbers)
+    return sum, sum / len(numbers)
+
+def display_result(nums, avg):
+    pass
 
 def main():
-    nums = [1,2,3,4,5,6,7,8,9]
-    print(f"\nThe average of the numbers {nums} is {average(nums)}")
+    nums = []
+
+    while True:
+        num = input("\nPlease enter a number or 'done' to exit: ")
+        if num.lower() == "done":
+            break
+        else:
+            nums.append(num)
+
+    sum, avg = average(nums)
+    print(f"\nThe sum of the numbers {', '.join(nums)} is {sum}. The average is {avg}.")
 
 main()
