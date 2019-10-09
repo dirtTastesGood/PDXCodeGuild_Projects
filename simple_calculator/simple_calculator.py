@@ -12,11 +12,15 @@ def calculator(operator, x, y):
 
     return outcome
 def main():
-    operator = input("\nWhat is the operation you'd like to perform? ")
-    num1 = float(input("\nWhat is your first number? "))
-    num2 = float(input("\nWhat is your second number? "))
+    while True:    
+        operator = input("\nWhat is the operation you'd like to perform? ('q' to quit) ")
 
-    result = calculator(operator, num1, num2)
+        if operator.lower() == 'q':
+            break
+        num1 = float(input("\nWhat is your first number? "))
+        num2 = float(input("\nWhat is your second number? "))
 
-    print(f"{num1} {operator} {num2} = {result}")
+        result = calculator(operator, num1, num2)
+
+        print(f"{num1} {operator} {num2} = {result}")
 main()
