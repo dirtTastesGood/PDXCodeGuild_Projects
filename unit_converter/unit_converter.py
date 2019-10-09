@@ -1,10 +1,8 @@
 def convert_units(value, unit_in, unit_out):
     conversions = {
-                    "feet":
-                            {"meters": 0.3048},
+                    "feet": {"meters": 0.3048},
                     "inches": {"meters": 0.0254},
-                    "kilometers": 
-                            {"meters": 1000},
+                    "kilometers": {"meters": 1000},
                     "meters":
                             {
                              "feet": 3.2808399,
@@ -14,12 +12,12 @@ def convert_units(value, unit_in, unit_out):
                              "miles": 0.000621371192,
                              "yards": 1.0936133                             
                             },
-                    "miles":
-                            {"meters": 1609.344},
+                    "miles": {"meters": 1609.344},
                     "yards": {"meters": 0.9144}
                       }
 
-    new_value = conversions[unit_in]["meters"] * value
+    meters = conversions[unit_in]["meters"] * value
+    new_value = meters * conversions["meters"][unit_out]
 
     return new_value
 
@@ -29,7 +27,7 @@ def main():
 
     while True:
         unit1 = input("\nEnter the starting unit: ")
-        unit2 = "meters" #input(f"\nEnter the unit into which you'd like to convert {unit1}: ")
+        unit2 = input(f"\nEnter the unit into which you'd like to convert {unit1}: ")
 
         num_of_unit1 = float(input(f"\nPlease enter the number of {unit1} you'd like converted to {unit2} ('q' to quit): "))
         num_of_unit2 = convert_units(num_of_unit1, unit1, unit2)
