@@ -1,36 +1,25 @@
 def convert_units(value, unit_in, unit_out):
     conversions = {
                     "feet":
-                            {
-                             "feet": 1,
-                             "kilometers": 0.0003048,
-                             "meters": 0.3048,
-                             "miles":  0.00018939393939394
-                            },
+                            {"meters": 0.3048},
+                    "inches": {"meters": 0.0254},
                     "kilometers": 
-                            {
-                             "feet": 3280.8399,
-                             "kilometers": 1,
-                             "meters": 1000,
-                             "miles": 0.62137
-                            },
+                            {"meters": 1000},
                     "meters":
                             {
                              "feet": 3.2808399,
+                             "inches": 0.0254,
                              "kilometers": 0.001,
                              "meters": 1,
-                             "miles": 0.000621371192                              
+                             "miles": 0.000621371192,
+                             "yards": 1.0936133                             
                             },
                     "miles":
-                            {
-                             "feet": 5280, 
-                             "kilometers": 1.609344,
-                             "meters": 1609.344,
-                             "miles": 1
-                            }
+                            {"meters": 1609.344},
+                    "yards": {"meters": 0.9144}
                       }
-    conversion_rate = conversions[unit_in][unit_out]
-    new_value = value * conversion_rate
+
+    new_value = conversions[unit_in]["meters"] * value
 
     return new_value
 
