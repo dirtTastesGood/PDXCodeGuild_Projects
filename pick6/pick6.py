@@ -31,7 +31,7 @@ def collect_winnings(matches):
     return reward
 
 def get_roi(investment, earnings):
-    roi = earnings - investment
+    roi = (earnings - investment)/investment
     return roi
 
 def main():
@@ -60,6 +60,6 @@ def main():
 
     investment = ticket_price * plays
     roi = get_roi(investment, earnings)
-    print(f"Your final balance is ${balance}. You won ${earnings}. The return on your investment of ${investment} was ${roi}")
+    print(f"Your final balance is ${balance}. You won ${earnings}. The return on your investment of ${investment} was {roi}")
 
 main()
