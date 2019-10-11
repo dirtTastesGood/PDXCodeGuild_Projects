@@ -30,12 +30,17 @@ def collect_winnings(matches):
     reward = scores[i]
     return reward
 
+def get_roi(investment, earnings):
+    roi = earnings - investment
+    return roi
+
 def main():
     plays = int(input("\nWelcome to Pick 6. Enter the number of times you'd like to play: "))
 
     winning_ticket = pick6()
     ticket_price = 2
     balance = 0
+    earnings = 0
 
     i = 0
     while i < plays:
@@ -49,9 +54,12 @@ def main():
 
         if reward:
             balance += reward
+            earnings += reward
     
         i += 1
 
-    print(f"Your final balance is {balance}.")
+    investment = ticket_price * plays
+    roi = get_roi(investment, earnings)
+    print(f"Your final balance is ${balance}. You won ${earnings}. The return on your investment of ${investment} was ${roi}")
 
 main()
