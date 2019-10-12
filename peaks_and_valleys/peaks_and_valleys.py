@@ -54,15 +54,6 @@ def display(data):
         print(graph_row)
     return graph
 
-def pour_water(data, peaks):
-    print(f"{data}")
-    between_peaks = []
-    for i, datum in enumerate(data):
-        if datum in peaks:
-            between_peaks.append(i)
-
-    print(f"between_peaks: {between_peaks}")
-
 def main():
     data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
     
@@ -71,7 +62,6 @@ def main():
     peaks_and_valleys = find_peaks_and_valleys(peaks, valleys)
 
     display(data)
-    pour_water(data, peaks)
 
     print(f"Peaks: {peaks}")
     print(f"Valleys: {valleys}")
