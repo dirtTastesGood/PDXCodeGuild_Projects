@@ -35,10 +35,11 @@ def split_number(num):
     return split_num
 
 def main():
-    num = 90
+    num = int(input("\nPlease enter a number 1-99: "))
     split_num = split_number(num)
 
     phrase = num_to_phrase(split_num)
 
-    print(phrase)
+    print(f"Digits: {num}, written: {phrase}")
+
 main()
