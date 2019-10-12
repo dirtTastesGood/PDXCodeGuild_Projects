@@ -45,8 +45,13 @@ def display(data):
             
         graph.append(row)
     
+    graph = list(map(list, zip(*graph)))[::-1]
+
     for row in graph:
-        print(row)
+        graph_row = ""
+        for col in row:
+            graph_row += f"{col} "
+        print(graph_row)
 
 def main():
     data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
