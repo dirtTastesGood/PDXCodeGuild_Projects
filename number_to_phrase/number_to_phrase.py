@@ -11,31 +11,44 @@ def num_to_phrase(split_num):
                  9:"ninety" 
                 } 
 
-    tens = split_num[0]
-    ones = split_num[1]
+    hundreds = split_num[0]
+    tens = split_num[1]
+    ones = split_num[2]
+
+    print(f"{hundreds} {tens} {ones}")
     phrase = ""
 
+    if hundreds > 0:
+        phrase += num_names[0][hundreds]
+        phrase += " hundred "
+    
     if tens == 0 or tens == 1:
-        phrase = num_names[tens][ones]
-    elif tens > 1:
+        phrase += num_names[tens][ones]
+    
+    if tens > 1:
         phrase += num_names[tens] 
         if ones > 0:
             phrase += "-" + num_names[0][ones]
     return phrase
 
 def split_number(num):
-    # split number into tens and ones
+    # split number into hundreds, tens and ones
     split_num = []
+
+    hundreds = num // 100
+    split_num.append(hundreds)
+    num -= hundreds * 100
 
     tens = num // 10
     split_num.append(tens)
+
     ones = num % 10
     split_num.append(ones)
 
     return split_num
 
 def main():
-    num = int(input("\nPlease enter a number 1-99: "))
+    num = int(input("\nPlease enter a number 1-999: "))
     split_num = split_number(num)
 
     phrase = num_to_phrase(split_num)
