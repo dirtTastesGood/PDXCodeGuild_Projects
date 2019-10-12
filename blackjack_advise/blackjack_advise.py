@@ -14,10 +14,39 @@ def get_score(cards):
                    "k": 10,
                    "A": 11
                   }
+    score = 0
 
-    pass
+    for card in cards:
+        card.lower()
+        score += card_scores[card]
+
+    return score
+
+def score_advise(score):
+    if score < 17:
+        advise = "You should hit."
+    elif 17 < score < 21:
+        advise = "You should stay."
+    elif score == 21:
+        advise = "You've already acheived Blackjack"
+    elif score > 21:
+        advise = "You've busted."
+
+    return advise
 
 def main():
-    pass
+    cards = []
+
+    print("\nWelcome to Blackjack Adviser. Please enter three cards (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K)")
+    
+    cards.append(input("\nPlease enter your first card: "))
+    cards.append(input("\nPlease enter your second card: "))
+    cards.append(input("\nPlease enter your third card: "))
+    
+    score = get_score(cards)
+
+    advise = score_advise(score)
+    
+    print(f"Your score is {score}. {advise}")
 
 main()
