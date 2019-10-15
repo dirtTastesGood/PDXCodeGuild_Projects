@@ -1,38 +1,47 @@
 import string
 
-def strip_line(line):
+def strip_text(text):
     exclude = set(string.punctuation)
-    line = ''.join(char for char in line if char not in exclude)
-    return line.lower().replace("  ", " ").strip("\n").split(" ")
+    text = ''.join(char for char in text if char not in exclude)
 
-def count_words(text, word_dict):
-    for word in text:
+    return text.lower().replace("  ", " ").replace("\n", " ").split(" ")
+
+def count_words(word_list):
+    word_dict = {}
+
+    for word in word_list:
         if word not in word_dict:
            word_dict[word] = 1
         elif word_dict[word]:
             word_dict[word] += 1
+
     return word_dict
 
-def most_frequent(word_dict):
-    word_list = []
+def most_frequent_words(word_dict):
+    tup_list = []
 
     words = list(word_dict.items())
     words.sort(key=lambda tup: tup[1], reverse=True)
     for i in range(min(10, len(words))):
-        word_list.append(words[i])
+        tup_list.append(words[i])
 
-    return word_list
+    return tup_list
+
+def count_word_pairs(text):
+    word_pairs = {}
+
+def most_frequent_pairs(pair_dict):
+    pass
 
 def main():
-    word_dict = {}
-
     with open('metamorphosis.txt', 'r') as book_file:
-        for line in book_file:
-            count_words(strip_line(line), word_dict)
-
-    words = most_frequent(word_dict)
+        word_list = strip_text(book_file.read())
+        word_dict = count_words(word_list)
+    
+    words = most_frequent_words(word_dict)
     
     print("\nThe 10 most common words in the text are:")
     for word in words:
         print(f"{word[0]}: {word[1]}")
+
 main()
