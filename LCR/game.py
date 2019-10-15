@@ -1,13 +1,6 @@
-def main():
-    pass
-
-main()
-
-
 from random import randint, choice
 
-def roll_die(die):
-    print(die)
+
 
 def main():
     centered_chips = 0
