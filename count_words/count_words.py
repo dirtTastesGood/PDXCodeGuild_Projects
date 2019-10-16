@@ -27,12 +27,6 @@ def most_frequent_words(word_dict):
 
     return tup_list
 
-def count_word_pairs(text):
-    word_pairs = {}
-
-def most_frequent_pairs(pair_dict):
-    pass
-
 def main():
     with open('metamorphosis.txt', 'r') as book_file:
         word_list = strip_text(book_file.read())
