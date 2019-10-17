@@ -1,8 +1,14 @@
 import datetime
 
-def load_file(data):
+def load_data(data):
     with open(data, 'r') as rain_data:
-        return rain_data.read()
+        data = rain_data.readlines()
+        data_tups = []
+        for line in data:
+            line = line.split(" ")
+            line = [x for x in line if x != ""] # eliminate blank strings in line
+            data_tups.append((line[0], line[1]))
+    return data_tups
 
 def create_date_dict(data):
     date_dict = {}
@@ -16,17 +22,14 @@ def create_date_dict(data):
     print(data)
 
 def main():
-    data = "rain_data.txt"
-    rain_data = load_file(data)
+    raw_data = "rain_data.txt"
+    data = load_data(raw_data)
 
     user_date = "08-OCT-2019"
 
     date = datetime.datetime.strptime(user_date, '%d-%b-%Y')
 
-    rain_data = ' '.join(rain_data.split())
-    rain_data = rain_data.split(" ")
-
-    create_date_dict(rain_data)
+    #create_date_dict(rain_data)
     
 main()
 
