@@ -12,3 +12,4 @@ def main():
     print(f"Swapped dictionary: {swap_keys(original)}")
     
 main()
+
