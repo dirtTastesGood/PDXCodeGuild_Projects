@@ -23,15 +23,13 @@ def create_date_dict(data):
 
         if year not in date_dict:
             date_dict[year] = {}
+            date_dict[year][month] = {day:rainfall}
         elif year in date_dict:
             if month not in date_dict[year]:
-                date_dict[year][month] = {} 
+                date_dict[year][month] = {day:rainfall} 
             elif month in date_dict[year]:
-                if day not in date_dict[year][month]:
-                    date_dict[year][month][day] = rainfall
+                date_dict[year][month][day] = rainfall
             
-    
-
     return date_dict
 
 def main():
@@ -39,25 +37,21 @@ def main():
     data = load_data(raw_data)
     rain_data = create_date_dict(data)
 
-    #print(rain_data)
-    #print(rain_data['2011']['AUG']['30'])
-
-    # year = input(f"Please enter a year {list(rain_data.keys())[-1]}-{list(rain_data.keys())[0]}: ")
+    year = input(f"Please enter a year {list(rain_data.keys())[-1]}-{list(rain_data.keys())[0]}: ")
     
-    # months = list(rain_data[year].keys())[::-1]
-    # month = input(f"Please enter a month 1-12: ")
-    # month = months[int(month)-1]
+    months = list(rain_data[year].keys())[::-1]
+    month = input(f"Please enter a month 1-12: ")
+    month = months[int(month)-1]
 
-    # print(month)
+    days = list(rain_data[year][month].keys())[::-1]
 
-    # days = list(rain_data[year][month].keys())[::-1]
+    day = input(f"Enter a day {days[0]}-{days[-1]}: ")
+    if day[0] == "0":
+        day = day.strip("0")
+    
+    day = days[int(day)-1]
 
-    # print(days)
-
-    # day = input(f"Enter a day {days[0]}-{days[-1]}: ")
-    # day = days[int(day.strip("0"))]
-
-    # print(day)
-    # print(f"The total rainfall for {month}-{year} was {rain_data[year][month]}")
+    print(day)
+    print(f"The total rainfall for {month}-{day}-{year} was {rain_data[year][month][day]}")
 main()
 
