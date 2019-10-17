@@ -64,5 +64,6 @@ def main():
     print(f"The total rainfall for {month}-{day}-{year} was {rain_data[year][month][day]}")
 
     print(f"The average total rainfall over the entire data set is: {average(data)}")
+    
 main()
 
