@@ -96,31 +96,34 @@ def get_record_year(data):
     
     return record_year
 
+def to_inches(num):
+    return float(num) * 0.01
+
 def main():
     raw_data = "rain_data.txt"
     data = load_data(raw_data)
     rain_data = create_date_dict(data)
 
-    # year = input(f"Please enter a year {list(rain_data.keys())[-1]}-{list(rain_data.keys())[0]}: ")
+    year = input(f"Please enter a year {list(rain_data.keys())[-1]}-{list(rain_data.keys())[0]}: ")
     
-    # months = list(rain_data[year].keys())[::-1]
-    # month = input(f"Please enter a month 1-12: ")
-    # month = months[int(month)-1]
+    months = list(rain_data[year].keys())[::-1]
+    month = input(f"Please enter a month 1-12: ")
+    month = months[int(month)-1]
 
-    # days = list(rain_data[year][month].keys())[::-1]
+    days = list(rain_data[year][month].keys())[::-1]
 
-    # day = input(f"Enter a day {days[0]}-{days[-1]}: ")
-    # if day[0] == "0":
-    #     day = day.strip("0")
+    day = input(f"Enter a day {days[0]}-{days[-1]}: ")
+    if day[0] == "0":
+        day = day.strip("0")
     
-    # day = days[int(day)-1]
+    day = days[int(day)-1]
 
-    # print(f"The total rainfall for {month}-{day}-{year} was {rain_data[year][month][day]}")
+    print(f"\nThe total rainfall for {month}-{day}-{year} was {to_inches(rain_data[year][month][day])} inches")
 
     avg = get_average(rain_data)
-    print(f"\nThe average total rainfall over the entire data set is: {avg}")
+    print(f"\nThe average total rainfall over the entire data set is: {to_inches(avg)} inches")
 
-    print(f"\nThe variance over the entire data set is: {get_variance(rain_data, avg)}")
+    print(f"\nThe variance over the entire data set is: {to_inches(get_variance(rain_data, avg))} inches")
     
     record_day = get_record_day(rain_data)
 
@@ -129,8 +132,8 @@ def main():
     month = date[1]
     year = date[2]
 
-    print(f"\nThe day in the data set that had the most rainfall was {record_day} with {rain_data[year][month][day]}")
+    print(f"\nThe day in the data set that had the most rainfall was {record_day} with {to_inches(rain_data[year][month][day])} inches")
 
     record_year = get_record_year(rain_data)
-    print(f"\nThe year with the highest rainfall was {record_year[0]} with {record_year[1]}")
+    print(f"\nThe year with the highest rainfall was {record_year[0]} with {to_inches(record_year[1])} inches")
 main()
