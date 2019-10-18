@@ -1,7 +1,5 @@
 def missing_char(word):
-    variations = [f"{word[:i]}{word[i+1::]}" for i in range(len(word))]
-
-    return variations
+    return [f"{word[:i]}{word[i+1::]}" for i in range(len(word))]
     
 def main():
     word = "ornery"
