@@ -80,6 +80,22 @@ def get_record_day(data):
     
     return record_day
 
+def get_record_year(data):
+    record = 0
+    for i in data:
+        yearly_sum = 0
+        for j in data[i]:
+            for k in data[i][j]:
+                num = data[i][j][k]
+                if num != "-" :
+                    num = int(num) 
+                    yearly_sum += num
+        if yearly_sum > record:
+            record = yearly_sum 
+            record_year = [i, record]           
+    
+    return record_year
+
 def main():
     raw_data = "rain_data.txt"
     data = load_data(raw_data)
@@ -114,4 +130,7 @@ def main():
     year = date[2]
 
     print(f"\nThe day in the data set that had the most rainfall was {record_day} with {rain_data[year][month][day]}")
+
+    record_year = get_record_year(rain_data)
+    print(f"\nThe year with the highest rainfall was {record_year[0]} with {record_year[1]}")
 main()
