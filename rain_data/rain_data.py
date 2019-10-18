@@ -66,6 +66,20 @@ def get_variance(data, avg):
     
     return variance
 
+def get_record_day(data):
+    record = 0
+    for i in data:
+        for j in data[i]:
+            for k in data[i][j]:
+                num = data[i][j][k]
+                if num != "-" :
+                    num = int(num) 
+                    if num > record:
+                        record = num
+                        record_day = f"{k}-{j}-{i}"
+    
+    return record_day
+
 def main():
     raw_data = "rain_data.txt"
     data = load_data(raw_data)
@@ -88,8 +102,16 @@ def main():
     # print(f"The total rainfall for {month}-{day}-{year} was {rain_data[year][month][day]}")
 
     avg = get_average(rain_data)
-    print(f"The average total rainfall over the entire data set is: {avg}")
+    print(f"\nThe average total rainfall over the entire data set is: {avg}")
 
-    print(f"The variance over the entire data set is: {get_variance(rain_data, avg)}")
+    print(f"\nThe variance over the entire data set is: {get_variance(rain_data, avg)}")
     
+    record_day = get_record_day(rain_data)
+
+    date = split_date(record_day)
+    day = date[0]
+    month = date[1]
+    year = date[2]
+
+    print(f"\nThe day in the data set that had the most rainfall was {record_day} with {rain_data[year][month][day]}")
 main()
