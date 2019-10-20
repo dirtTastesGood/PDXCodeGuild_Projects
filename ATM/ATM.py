@@ -48,20 +48,25 @@ class ATM:
         return accnt_num
 
     def check_balance(self, account):
-        return self.accounts[account].balance
+        return account.balance
 
     def deposit(self, account, amount):
+        account.balance += amount
         return
 
     def __check_withdrawal(self, account, amount):
-
-        return
+        return account.balance - amount > 0
 
     def withdraw(self, account, amount):
-        return
+        if self.__check_withdrawal(account, amount):
+            account.balance -= amount
+            msg = "Withdrawal successful."
+        else: 
+            msg = "Withdrawal failed. Insufficient funds."
+        return msg
 
     def calc_interest(self, account):
-        return
+        return account.balance * account.interest_rate
 
     def __save_accounts(self):
         
@@ -71,7 +76,19 @@ def main():
     atm = ATM()
     atm.create_account()
     account = atm.accounts['0001']
-    print(f"current balance: {atm.check_balance(account.accnt_num)}")
+    print(f"current balance: {atm.check_balance(account)}")
+    print(f"deposit $300.")
+    atm.deposit(account, 300)
+    print(f"current balance: {atm.check_balance(account)}")
+    print(f"Withdraw $50: ")
+    msg = atm.withdraw(account, 50)
+    print(f"{msg} current balance: {atm.check_balance(account)}")
+
+    print(f"Withdraw $500: ")
+    msg = atm.withdraw(account, 500)
+    print(f"{msg} current balance: {atm.check_balance(account)}")
+
+    print(f"Your monthly interest is: ${atm.calc_interest(account)}")
     return
     
 main()
