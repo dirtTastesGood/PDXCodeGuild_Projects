@@ -20,7 +20,7 @@ class ATM:
 
         self.accounts[accnt_num] = Account(accnt_num, name, self.interest_rate)
 
-        return
+        return 
 
     def __gen_accnt_num(self):
         if len(self.accounts) == 0:
@@ -48,7 +48,7 @@ class ATM:
         return accnt_num
 
     def check_balance(self, account):
-        return 
+        return self.accounts[account].balance
 
     def deposit(self, account, amount):
         return
@@ -70,7 +70,8 @@ class ATM:
 def main():
     atm = ATM()
     atm.create_account()
-    print(atm.accounts['0001'])
+    account = atm.accounts['0001']
+    print(f"current balance: {atm.check_balance(account.accnt_num)}")
     return
     
 main()
