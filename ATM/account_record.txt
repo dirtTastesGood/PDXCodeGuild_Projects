@@ -1,0 +1,10 @@
+0001=accnt_num:0001,owner:John,balance:0,interest_rate:0.1
+0002=accnt_num:0002,owner:Paul,balance:0,interest_rate:0.1
+0003=accnt_num:0003,owner:Ringo,balance:0,interest_rate:0.1
+0004=accnt_num:0004,owner:George,balance:0,interest_rate:0.1
+0005=accnt_num:0005,owner:Yoko Ono,balance:0,interest_rate:0.1
+0006=accnt_num:0006,owner:Sgt. Pepper,balance:0,interest_rate:0.1
+0007=accnt_num:0007,owner:George Martin,balance:0,interest_rate:0.1
+0008=accnt_num:0008,owner:Blue Meanie,balance:0,interest_rate:0.1
+0009=accnt_num:0009,owner:Mr. Kite,balance:0,interest_rate:0.1
+
