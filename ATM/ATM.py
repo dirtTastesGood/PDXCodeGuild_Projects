@@ -1,17 +1,8 @@
-class Account:
-    def __init__(self, accnt_num, name, rate):
-        self.accnt_num = accnt_num
-        self.owner = name
-        self.balance = 0
-        self.interest_rate = rate
-
-        return
-
 class ATM:
     def __init__(self):
         self.interest_rate = 0.1
         self.accounts = self.__load_accounts()
-        # print(self.accounts)
+        
         return 
 
     def create_account(self):
@@ -53,21 +44,25 @@ class ATM:
         return account['balance']
 
     def deposit(self, account, amount):
-        account['balance'] += amount
+        account['balance'] = float(account['balance'])
+        account['balance'] += float(amount)
         return
 
     def __check_withdrawal(self, account, amount):
-        return account['balance'] - amount > 0
+        account['balance'] = float(account['balance'])
+        return account['balance'] - float(amount) > 0
 
     def withdraw(self, account, amount):
         if self.__check_withdrawal(account, amount):
-            account['balance'] -= amount
+            account['balance'] = float(account['balance'])
+            account['balance'] -= float(amount)
             msg = "Withdrawal successful."
         else: 
             msg = "Withdrawal failed. Insufficient funds."
         return msg
 
     def calc_interest(self, account):
+        account['balance'] = float(account['balance'])
         return account['balance'] * account['interest_rate']
 
     def __load_accounts(self):
@@ -117,20 +112,21 @@ class ATM:
 def main():
     atm = ATM()
     atm.create_account()
-    # account = atm.accounts['0001']
-    # print(f"current balance: {atm.check_balance(account)}")
-    # print(f"deposit $300.")
-    # atm.deposit(account, 300)
-    # print(f"current balance: {atm.check_balance(account)}")
-    # print(f"Withdraw $50: ")
-    # msg = atm.withdraw(account, 50)
-    # print(f"{msg} current balance: {atm.check_balance(account)}")
+    acct_num = list(atm.accounts.keys())[-1]
+    account = atm.accounts[acct_num]
+    print(f"current balance: {atm.check_balance(account)}")
+    print(f"deposit $300.")
+    atm.deposit(account, 300)
+    print(f"current balance: {atm.check_balance(account)}")
+    print(f"Withdraw $50: ")
+    msg = atm.withdraw(account, 50)
+    print(f"{msg} current balance: {atm.check_balance(account)}")
 
-    # print(f"Withdraw $500: ")
-    # msg = atm.withdraw(account, 500)
-    # print(f"{msg} current balance: {atm.check_balance(account)}")
+    print(f"Withdraw $500: ")
+    msg = atm.withdraw(account, 500)
+    print(f"{msg} current balance: {atm.check_balance(account)}")
 
-    # print(f"Your monthly interest is: ${atm.calc_interest(account)}")
+    print(f"Your monthly interest is: ${atm.calc_interest(account)}")
     return
     
 main()
