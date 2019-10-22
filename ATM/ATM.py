@@ -107,26 +107,47 @@ class ATM:
                         record += ","
                 record = f"{record}\n"
             print(record, file=accnt_record)
+
+            def display_account(self, account):
+                pass
+
+            def exit(self):
+                self.__save_accounts()
+                
+                return
+                
         return
+
+def display_menu():
+    options = ['Create an Account', 'Edit an account', 'Make a deposit', 'Make a withdrawal', 'Calculate monthly interest', 'Quit']
+    for i, option in enumerate(options):
+        print(f"{i+1}. {option}")
 
 def main():
     atm = ATM()
-    atm.create_account()
-    acct_num = list(atm.accounts.keys())[-1]
-    account = atm.accounts[acct_num]
-    print(f"current balance: {atm.check_balance(account)}")
-    print(f"deposit $300.")
-    atm.deposit(account, 300)
-    print(f"current balance: {atm.check_balance(account)}")
-    print(f"Withdraw $50: ")
-    msg = atm.withdraw(account, 50)
-    print(f"{msg} current balance: {atm.check_balance(account)}")
+    
+    print("\nHello! I am an ATM!")
 
-    print(f"Withdraw $500: ")
-    msg = atm.withdraw(account, 500)
-    print(f"{msg} current balance: {atm.check_balance(account)}")
+    while True:
+        print("\nHow can I help you?")
+        
+        display_menu()
 
-    print(f"Your monthly interest is: ${atm.calc_interest(account)}")
+        choice = input("\nPlease enter the number of one of the options listed above:")
+        if choice == "1":
+            pass
+        elif choice == "2":
+            pass
+        elif choice == "3":
+            pass
+        elif choice == "4":
+            pass
+        elif choice == "5":
+            pass
+        elif choice == "6":
+            atm.exit()
+            break
+
     return
     
 main()
