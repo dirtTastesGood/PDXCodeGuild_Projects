@@ -1,201 +1,68 @@
 class ATM:
     def __init__(self):
+        self.balance = 0
+        self.transactions = {}
         self.interest_rate = 0.1
-        # self.accounts = self.__load_accounts()
-        self.accounts = {'0001':{'accnt_num':'0001', 'owner':'Keegan', 'balance':0, 'interest_rate': 0.1, 'transactions':{'date':'10-22-2019', 'type':'deposit', 'amount':200}},
-                         '0002':{'accnt_num':'0002', 'owner':'Ringo', 'balance':0, 'interest_rate': 0.1, 'transactions':{'date':'10-22-2019', 'type':'deposit', 'amount':500}}   
-                        }       
+
         return 
 
-    def create_account(self, name):
-        accnt_num = self.__gen_accnt_num()
+    def check_balance(self):
+        return self.balance
+
+    def deposit(self, amount):
+        self.balance += amount
         
-        self.accounts[accnt_num] = {'accnt_num': accnt_num, 
-                                    'owner': name, 
-                                    'balance':0, 
-                                    'interest_rate':self.interest_rate, 
-                                    'transactions': {'1':{'date':'10-22-2019','amount':100, 'type':'deposit'}}
-                                    }
-        
-        self.__save_accounts()
-
-        return self.accounts[accnt_num]
-
-    def __gen_accnt_num(self):
-        if len(self.accounts) == 0:
-            accnt_num = "0001"
-        else:
-            keys = list(self.accounts.keys())
-            num = self.accounts[keys[-1]]['accnt_num'] # grab the last account number in dictionary
-
-            zeros_needed = 0
-            i=0
-            while True:
-                if num[i] != '0':
-                    num = num[i::]
-                    break
-                i += 1    
-                zeros_needed = i
-                
-            num = int(num) + 1
-
-            zeros = ''.join(["0" for i in range(0, zeros_needed) if len(str(num)) < 4])
-
-            accnt_num = f"{zeros}{num}"
-
-        return accnt_num
-
-    def check_balance(self, account):
-        return account['balance']
-
-    def display_account(self, account):
-        print(account)
         return
 
-    def deposit(self, account, amount):
-        account['balance'] = float(account['balance'])
-        account['balance'] += float(amount)
-        
-        #self.__update_transactions(account, "deposit", amount)
+    def __check_withdrawal(self, amount):
+        return self.balance - amount > 0
 
-        return
+    def withdraw(self, amount):
 
-    def __update_transactions(self, account, trns_type, amount=0):
-        transaction_number = len(self.accounts[account]['transactions']) + 1
-        new_transaction = {}
-        new_transaction = {trns_type:amount}
 
-        #self.accounts[account]['transactions'][transaction_number] = new_transaction
+        if self.__check_withdrawal(amount):
+            print("called")
 
-        print(self.accounts[account])
-        return
-
-    def __check_withdrawal(self, account, amount):
-        account['balance'] = float(account['balance'])
-        return account['balance'] - float(amount) > 0
-
-    def withdraw(self, account, amount):
-        if self.__check_withdrawal(account, amount):
-            account['balance'] = float(account['balance'])
-            account['balance'] -= float(amount)
-            msg = "Withdrawal successful."
+            self.balance -= amount
+            msg = f"Withdrawal successful. Your new balance is ${self.balance}"
         else: 
             msg = "Withdrawal failed. Insufficient funds."
         return msg
 
-    def calc_interest(self, account):
-        account['balance'] = float(account['balance'])
-        return account['balance'] * account['interest_rate']
-
-    # This method is gross. However, it just reads
-    # each line of account_record.txt and splits them into
-    # a dictionary for each account.
-    def __load_accounts(self):
-        accnts = {}
-        f = open('account_record.txt', 'r')
-        accnt_record = f.readlines()
-        f.close()
-
-        for accnt in accnt_record:
-            if len(accnt) == 1:
-                accnt_record.remove(accnt)
-                continue
-            accnt = accnt.split("=")
-
-            key = accnt[0]
-            values = accnt[1]    
-
-            accnts[key] = {}
-
-            values = values.split(",")
-            for value in values:
-                print(f"value: {value}")
-                value = value.split(":")
-
-                accnts[key][value[0]] = value[1].strip()
-
-                if value[0] == "transactions":
-                    trn_list = value[1].split("&")
-                    print(f"transactions: {trn_list}")
-                    transactions = {}
-                    for t in trn_list:
-                        print(f"t: {t}")
-                        t = t.split("#")
-                        t_key = t[0]
-                        t_values = t[1].strip()
-                    
-                        t_values = t_values.split("*")
-                        t_dict = {}
-                        for t_value in t_values:
-                            t_pair = t_value.split("+")
-                            t_pair_key = t_pair[0]
-                            t_pair_value = t_pair[1]
-                            t_dict[t_pair_key] = t_pair_value
-                        transactions[t_key] = t_dict
-                    
-                    accnts[key][value[0]] = transactions
-
-        return accnts # returns a dictionary of all accounts
-
-    def __save_accounts(self):
-        with open('account_record.txt', 'w') as accnt_record:
-            record = ""
-            for accnt in self.accounts:
-                record += f"{accnt}="
-                
-                for key in self.accounts[accnt]:
-                    pair = []
-                    pair.append(key)
-                    pair.append(self.accounts[accnt][key])
-
-
-                    record += f"{pair[0]}:"
-
-                    if pair[0] == "transactions":
-                        transactions = pair[1]
-                        final_t_key = list(transactions.keys())[-1]
-
-                        for t_key in transactions:
-                            record += f"{t_key}#"
-                            record += str(transactions[t_key])
-
-                            if t_key != final_t_key:
-                                record += "&"
-
-                    else:
-                        record += f"{pair[1]}"
-
-                    final_key = list(self.accounts[accnt].keys())[-1]
-                    if key != final_key:
-                        record += ","
-                record += "\n"
-        print(record)        
-        return # breaks down self.accounts into a single line to be saved
+    def calc_interest(self):
+        return self.balance * self.interest_rate
 
     def display_menu(self):
-        options = ['Create an Account', 'Edit an account', 'Make a deposit', 'Make a withdrawal', 'Calculate monthly interest', 'Quit']
+        options = ['Check balance', 'Make a deposit', 'Make a withdrawal', 'Calculate monthly interest', 'Quit']
         for i, option in enumerate(options):
             print(f"{i+1}. {option}")
         return
-    
-    def exit(self):
-        self.__save_accounts()
-        
-        return
-        
-
 
 def main():
     atm = ATM()
-    
-    
-    # account = atm.create_account("Ringo")
+    print("\nHello! I am an ATM!")
+    while True:
+        print("\nHow can I help you?")
+        atm.display_menu()
+        choice = input("\nPlease enter the number of one of the options listed above: ")
 
-    # atm.display_account(account)
+        if choice == '1':
+            print(f"\nYour current balance is: ${atm.balance}")
+        elif choice == '2':
+            d_amount = float(input("\nHow much would you like to deposit? $"))
+            atm.deposit(d_amount)
+            print(f"\nThanks. Your current balance is ${atm.check_balance()}")
+        elif choice == '3':
+            w_amount = float(input("\nHow much would you like to withdraw? $"))
+            msg = atm.withdraw(w_amount)
+            print(f"\n{msg}")
+        elif choice == '4':
+            print(f"\nYour monthly interest is: ${atm.calc_interest()}")
+        elif choice == '5':
+            break
+        else:
+            print("\nPlease enter a valid option.")
 
-    # atm.deposit(account, 100)
-
-    atm.exit()
     return
-    
+
 main()
