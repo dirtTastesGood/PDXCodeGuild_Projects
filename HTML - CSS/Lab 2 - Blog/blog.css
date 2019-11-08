@@ -1,0 +1,86 @@
+/* HEX: #3e4444
+HEX: #82b74b
+HEX: #405d27
+HEX: #c1946a */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #c1946a;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #82b74b;
+}
+
+body {
+    background-color: #3e4444;
+}
+
+.navbar.navbar-expand-lg {
+    margin-bottom: 15px;
+}
+
+.navbar.navbar-expand-lg > .navbar-brand {
+    color: #82b74b;
+    font-size: 3rem;
+}
+
+.container {
+    background-color: #3e4444;
+    grid-gap: 5px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.posts {
+    
+}
+
+.card {
+    border: none;
+    margin: 15px 0;
+}
+
+.card > .card-body {
+    background-color: #82b74b;
+}
+
+.card > .card-header {
+    background-color: #405d27;
+    color: #c4d4b2;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card > .card-footer {
+    background-color: #405d27;
+    color: #c4d4b2;
+}
+
+.card > .card-footer .post-author {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.card > .card-footer .comments-link {
+    text-align: center;
+}
+
+.card > .card-footer .date-posted{
+   text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+    .card > .card-header {
+        text-align: left;
+    }
+}
