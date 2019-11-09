@@ -1,0 +1,150 @@
+/* HEX: #bbab9b
+HEX: #8b6f47
+HEX: #d4ac6e
+HEX: #4f3222 */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #4f3222;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.navbar.navbar-expand-lg.navbar-light {
+    background-color: #d4ac6e;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.navbar.navbar-expand-lg.navbar-light .navbar-brand {
+    font-size: 2rem;
+    color: #311f15;
+
+}
+
+.navbar.navbar-expand-lg.navbar-light > .collapse.navbar-collapse{
+    background-color: #d4ac6e;
+}
+
+.navbar.navbar-expand-lg.navbar-light #navbarNavDropdown .navbar-nav .nav-item.dropdown .dropdown-menu {
+    background-color: #8b6f47;
+}
+
+.company-name {
+    color: #bbab9b;
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    text-shadow: .2rem .2rem .1rem #5a4938;;
+}
+
+.circle-image-container {
+    height: 45vh;
+    max-height: 90vw;
+    max-width: 45vh;
+    width: 90vw;
+}
+
+#circle-img {
+    background: url(https://i2.wp.com/get-cooking.org.uk/wp-content/uploads/2018/04/IMG_5386.jpg?fit=1024%2C683&ssl=1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 4px solid #311f15;
+    height: 100%;
+}
+
+.arrow {
+    color: #bbab9b;
+    font-family: 'Sacramento', 'cursive';
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    margin-top: 15px;
+}
+
+.up-arrow {
+    text-shadow: .2rem .2rem .1rem #5a4938;
+}
+.down-arrow {
+    text-shadow: -.2rem -.2rem .1rem #5a4938;
+    transform: rotate(180deg);
+}
+
+h3 {
+    color: #bbab9b;
+    font-family: 'Sacramento', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: .2rem .2rem .1rem #5a4938;
+}
+
+.content-box-1 {
+    background-color: #d4ac6e;
+    opacity: .8;
+    padding: 20px;
+}
+
+.big-dot {
+    color: #bbab9b;
+    font-family: 'Sacramento', 'cursive';
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 2rem;
+    text-shadow: .2rem .2rem .1rem #5a4938;
+}
+
+#herbal-carousel {
+    margin-bottom: 25px;
+}
+
+#herbal-carousel .carousel-inner {
+    height: 25vh;
+}
+
+#herbal-carousel .carousel-inner .carousel-item img{
+    height: 100%;
+    object-fit: contain;
+    width: 100%
+}
+
+.footer {
+    background-color: #d4ac6e;
+    margin: 0 15px;
+}
+
+.footer-left, .footer-right {
+    padding: 15px;
+}
+
+.footer-left ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+@media only screen and (min-width: 700px) {
+    .circle-image-container {
+        height: 60vh;
+        max-height: 60vw;
+        max-width: 60vh;
+        width: 60vw;
+    }
+
+    #herbal-carousel .carousel-inner{
+        height: 50vh;
+    }
+
+    #content-box-1 {
+        font-size: 2.5rem;
+    }
+
+    .footer {
+        width: 80vw;
+    }
+}
