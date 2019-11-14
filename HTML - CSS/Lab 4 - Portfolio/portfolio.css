@@ -1,0 +1,139 @@
+/* 
+    #f7f0f5
+    #decbb7
+    #8f857d
+    #5c5552
+    #433633
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* splash, bio, projects, contact */
+.section { 
+    height: 100vh;
+    width: 100vw;
+}
+
+#splash {
+    align-items: center;
+    background-color: #413026;
+    border-bottom:  #5c5552 10px dotted;
+    display: flex;
+    flex-direction: column;
+}
+
+#splash .mandala-container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    margin-bottom: 30vh;
+    max-height: 100vw;
+    max-width: 100vh;
+    opacity: 0;
+    position: relative;
+    top: 75px;
+    width: 100vw;
+}
+
+#splash .mandala-container img {
+    border-radius: 100px;
+    height: 95%;
+    object-fit: contain;
+    position: absolute;
+    width: 95%;
+}
+
+#layer1 {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+#layer2 {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 400ms;
+}
+#layer3 {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 1000ms;
+}
+#layer4 {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 1600ms;
+}
+#layer5 {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 2200ms;
+}
+#layer6 {
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 2800ms;
+}
+#layer7 {
+    box-shadow: 0px 0px 75px #f0f0f7;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 3400ms;
+    width: 100%;
+}
+
+.mandala-border {
+    border: 4px double #5c5552;
+    border-radius: 100px;
+    height: 95%;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 3400ms;
+    width: 95%;
+}
+
+.initials {
+    color: #393e44; 
+    font-family: Righteous;
+    font-size: 5.5rem;
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0px 0px 4px #f0f0f7;
+    transition: opacity 900ms ease-in-out;
+    transition-delay: 3400ms;
+}
+
+#down-arrow-container-1 {
+    color: #393e44;
+    font-family: Righteous;
+    font-size: 3rem;
+    opacity: 0;
+    position: relative;
+    text-shadow: 0px 0px 5px #f0f0f7;
+
+    transition: opacity 1000ms ease-in-out;
+    transition-delay: 4200ms;
+}
+
+#bio {
+    background-color: #5c5552;
+    border-bottom: #393e44 10px dotted;
+    border-top: #413026 10px dotted;
+}
+
+#projects {
+    background-color: #393e44;
+    border-bottom: #949497 10px dotted;
+    border-top: #5c5552 10px dotted;
+}
+
+#contact {
+    background-color: #949497;
+    border-top: #393e44 10px dotted;
+}
