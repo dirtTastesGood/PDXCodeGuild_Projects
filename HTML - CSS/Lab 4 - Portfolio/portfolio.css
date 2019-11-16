@@ -33,6 +33,7 @@ a {
     border-bottom:  #5c5552 10px dotted;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #splash .mandala-container {
@@ -40,7 +41,6 @@ a {
     display: flex;
     height: 100vh;
     justify-content: center;
-    margin-bottom: 30vh;
     max-height: 100vw;
     max-width: 100vh;
     opacity: 0;
@@ -119,27 +119,133 @@ a {
 }
 
 #down-arrow-container-1 {
-    color: #393e44;
-    font-family: Righteous;
-    font-size: 3rem;
     opacity: 0;
-    position: relative;
-    text-shadow: 0px 0px 5px #f0f0f7;
-
     transition: opacity 1000ms ease-in-out;
     transition-delay: 4200ms;
 }
+
+#down-arrow-1 {
+    bottom: 10vh;
+    color: #393e44;
+    font-family: Righteous;
+    font-size: 3rem;
+    opacity: 1;
+    position: absolute;
+    text-shadow: 0px 0px 5px #f0f0f7;
+    transform: translateX(-50%);
+}
+
+.down-arrow {
+    bottom: 10vh;
+    color: #393e44;
+    font-family: Righteous;
+    font-size: 3rem;
+    position: absolute;
+    text-shadow: 0px 0px 5px #f0f0f7;
+}
+
 
 #bio {
     background-color: #5c5552;
     border-bottom: #393e44 10px dotted;
     border-top: #413026 10px dotted;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    position: relative;
+    text-align: center;
+}
+
+#bio ul {
+    font-family: 'Montserrat', 'sans-serif';
+    list-style: none;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#bio-left {
+    display: flex;
+    flex-direction: column;
+}
+
+#big-k {
+    float: left;
+    font-family: Righteous;
+    font-size: 4rem;
+    left: 20px;
+    margin: 0 10px;
+    position: relative;
+}
+
+
+#bio p {
+    font-family: 'Montserrat', 'sans-serif';
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#bio-p1 {
+    margin-top: 35px;
+    position: relative;
+    top: -25px;
+}
+
+#bio-p2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#bio-header {
+    font-family: Righteous;
+    font-size: 1.5rem;
+}
+
+#bio-right {
+    display: flex;
+    flex-direction: column;
+}
+
+#bio-p3 {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #projects {
+    align-items: center;
     background-color: #393e44;
     border-bottom: #949497 10px dotted;
     border-top: #5c5552 10px dotted;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 15px;
+    position: relative;
+}
+
+.projects-header {
+    font-family: Righteous;
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
+}
+
+.projects-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 95vw;
+}
+.project {
+    height: 70vh;
+    max-height: 70vw;
+    max-width: 70vh;
+    text-align: center;
+    width: 70vw;
+}
+
+.project img {
+    height: 100%;
+    width: 100%;
 }
 
 #contact {

@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="./portfolio.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Kurale|Righteous&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous&display=swap" rel="stylesheet"> 
 
     <title>Keegan Good</title>
 </head>
@@ -30,10 +30,54 @@
                 </div>
             </div>
             <div class="section" id="bio">
-        
+                <div class="bio-container">
+                    <div class="bio-left">
+                        <strong id="big-k">K</strong><br/><br/>
+                        <p id="bio-p1"> <strong>eegan Good</strong> is a full stack web developer, musician and multimedia artist based in Portland, Oregon. He employs both brain hemispheres to create dynamic and visually appealing web applications. Logical by philosophy and aesthetic by design, his apps provide custom solutions to unique business problems.
+                        </p>
+
+                        <p id="bio-p2"><strong id="bio-header">Skills:</strong>
+                            <ul class="skills-list">
+                                <li class="skill-item">Web Application Development</li>
+                                <li class="skill-item">Data Analysis</li>
+                                <li class="skill-item">Custom site styling</li>
+                                <li class="skill-item">Graphic Design</li>
+                                <li class="skill-item">Custom Site Styling</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="bio-right">
+                        <p id="bio-p3"> 
+                            <strong id="bio-header">Technologies:</strong>
+                            <ul class="language-list">
+                                <li class="language-item">Python / Django</li>
+                                <li class="language-item">Javascript</li>
+                                <li class="language-item">Ruby on Rails</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="down-arrow" id="down-arrow-container">
+                    <strong id="down-arrow"><a href="#projects">&#x27F1;</a></strong>
+                </div>
             </div>
-            <div class="section" id="projects"></div>
-            <div class="section" id="contact"></div>
+            <div class="section" id="projects">
+                <h3 class="projects-header">Projects:</h3>
+                <div class="projects-container">
+                    <div class="project">
+                        <a href="https://www.bearlyfarms.herokuapp.com"><img src="./images/projects/bearlyBear.png" alt="Bearly Farms Logo"></a>
+                    </div>
+                </div>
+                <div class="down-arrow" id="down-arrow-container">
+                    <strong id="down-arrow"><a href="#contact">&#x27F1;</a></strong>
+                </div>
+            </div>
+            <div class="section" id="contact">
+                <h3 class="contact-header">
+                    I'm here for you!
+                </h3>
+            </div>
             
     </div>
     
@@ -49,8 +93,8 @@
             let initials = document.getElementById("initials")
             initials.style.opacity = 1;
 
-            downArrowContainer_1 = document.getElementById("down-arrow-container-1");
-            downArrowContainer_1.style.opacity = 1;
+            downArrowContainer = document.getElementById("down-arrow-container-1");
+            downArrowContainer.style.opacity = 1;
             
             downArrow_1 = document.getElementById("down-arrow-1");
             downArrow_1.style.opacity = 1;
