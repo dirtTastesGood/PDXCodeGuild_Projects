@@ -174,7 +174,7 @@ a {
     border-top: #413026 10px dotted;
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
+    padding-top: 10vh;
     position: relative;
     text-align: center;
 }
@@ -199,6 +199,7 @@ a {
     font-family: Righteous;
     font-size: 4rem;
     line-height: 1rem;
+    
 }
 
 strong {
@@ -221,6 +222,10 @@ strong {
 #bio-p2{
     text-align: center;
     margin-bottom: 10px;
+}
+
+#bio-p1 strong {
+    font-size: 2rem
 }
 
 #bio-header {
@@ -324,7 +329,7 @@ i.far {
 }
 
 .highlightable-text {
-    color: #5c5552;
+    color: #393e44;
     transition: text-shadow .2 ease-in-out; 
 }
 
@@ -376,11 +381,15 @@ i.far {
     }
 
     #bio-p1 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+    }
+
+    #bio-p1 strong {
+        font-size: 2rem
     }
 
     .skills-list, .language-list {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .project {
