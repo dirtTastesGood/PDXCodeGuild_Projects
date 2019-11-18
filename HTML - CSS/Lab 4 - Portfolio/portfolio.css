@@ -36,7 +36,6 @@ a {
 
 /* splash, bio, projects, contact */
 .section { 
-    height: 100vh;
     width: 100vw;
 }
 
@@ -46,6 +45,7 @@ a {
     border-bottom:  #5c5552 10px dotted;
     display: flex;
     flex-direction: column;
+    height: 100vh;
     position: relative;
 }
 
@@ -196,12 +196,13 @@ a {
 }
 
 #big-k {
-    float: left;
     font-family: Righteous;
     font-size: 4rem;
-    left: 20px;
-    margin: 0 10px;
-    position: relative;
+    line-height: 1rem;
+}
+
+strong {
+    font-weight: bold;
 }
 
 #bio p {
@@ -244,6 +245,7 @@ a {
 .social-link {
     border-radius: 15px;
     padding: 10px;
+    margin-bottom: 20vh;
 }
 
 #projects {
@@ -304,26 +306,30 @@ a {
     font-family: 'Montserrat', 'sans-serif';
     font-size: 1.3rem;
     padding: 0 10vw;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 i.far {
     padding: 20px;
-    transition: text-shadow .3s ease-in-out, color .3s ease-in-out;
 }
 
-i.far:hover {
-    color:#5c5552;
-    text-shadow: 0px 0px 10px #90e6e9;
-}
-
-.highlightable {
+.highlightable-box {
     transition: box-shadow .2s ease-in-out, border .2s ease-in-out;
 }
 
-.highlightable:focus {
+.highlightable-box:focus {
     border: 2px dotted #949497;
     box-shadow: 0px 0px 10px #90e6e9;
+}
+
+.highlightable-text {
+    color: #5c5552;
+    transition: text-shadow .2 ease-in-out; 
+}
+
+.highlightable-text:hover {
+    text-shadow: 0px 0px 10px #90e6e9;   
 }
 
 #contact-form {
@@ -356,3 +362,44 @@ i.far:hover {
     width: 90vw;
 }
 
+/* Tablets */
+@media only screen and (min-width: 700px) {
+    #splash .mandala-container {
+        height: 60vh;
+        max-height: 60vw;
+        max-width: 60vh;
+        width: 60vw;
+    }
+
+    .bio-container {
+        width: 75vw;
+    }
+
+    #bio-p1 {
+        font-size: 1.5rem;
+    }
+
+    .skills-list, .language-list {
+        font-size: 1.2rem;
+    }
+
+    .project {
+        height: 40vh;
+        max-height: 40vw;
+        max-width: 40vh;
+        text-align: center;
+        width: 40vw;
+    }
+    
+    .social-links {
+        padding-bottom: 15vh;
+    }
+
+    #contact-form input{
+        width: 40vw;
+    }
+
+    #contact-form #msg-body{
+        width: 75%;
+    }
+}
