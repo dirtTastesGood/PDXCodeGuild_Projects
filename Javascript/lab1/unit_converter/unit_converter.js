@@ -3,10 +3,14 @@ function normalize_units(units) {
         units = "mi";
     } else if(units == "feet" || units == "ft"){
         units = "ft";
+    } else if(units == "yards" || units == "yrds"){
+        units = "yd";
     } else if(units == "meters" || units == "m"){
         units = "m";
     } else if(units == "kilometers" || units == "km"){
         units = "km";
+    } else if(units == "inches" || units == "in"){
+        units = "in";
     } else {
         units = "";
     }
@@ -15,7 +19,7 @@ function normalize_units(units) {
 }
 
 function units_to_meters(distance, units) {
-    const u_to_m = {"ft":.3048, "km": 1609.34, "m":1, "mi":1609.34};
+    const u_to_m = {"in":0.0254, "ft":.3048, "km": 1609.34, "m":1, "mi":1609.34, "yd":0.9144};
     
     let new_dist = distance * u_to_m[units];
 
