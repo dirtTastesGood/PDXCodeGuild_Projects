@@ -18,19 +18,27 @@ function normalize_units(units) {
     return units
 }
 
-function units_to_meters(distance, units) {
-    const u_to_m = {"in":0.0254, "ft":.3048, "km": 1609.34, "m":1, "mi":1609.34, "yd":0.9144};
-    
-    let new_dist = distance * u_to_m[units];
+function unitsToMeters(distance, conversion_rate) {
+
+    let new_dist = distance * conversion_rate;
 
     return new_dist
 };
+
+function metersToUnits(distance, conversion_rate){
+    new_dist = distance / conversion_rate
+
+    return new_dist
+}
+
+
 
 function main(){
     const readline = require('readline-sync');
     let dist = 0;
     let units = "";
-
+    const u_to_m = {"in":0.0254, "ft":.3048, "km": 1609.34, "m":1, "mi":1609.34, "yd":0.9144};
+    
     while(true){
         let user_dist = parseInt(readline.question('Enter distance: '));
 
@@ -53,10 +61,23 @@ function main(){
             console.log("That is not a valid unit.\n");
         }
     }
-    
-    let to_m = units_to_meters(dist, units);
-    
-    console.log(`${dist} ${units} is ${to_m} meters`);
+
+    while(true){
+        let user_unit2 = readline.question('Enter units: ');
+        let result2 = normalize_units(user_unit2);
+        
+        if(result2 != ""){
+            units2 = result2;
+            break;
+        } else {
+            console.log("That is not a valid unit.\n");
+        }
+    }
+
+    let conversion_rate = u_to_m[units];
+    let to_m = unitsToMeters(dist, conversion_rate);
+    let to_u = metersToUnits(to_m, conversion_rate);
+    console.log(`${dist} ${units} is ${to_u} ${units2}`);
 };
 
 main();
