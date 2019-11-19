@@ -3,7 +3,7 @@ function normalize_units(units) {
         units = "mi";
     } else if(units == "feet" || units == "ft"){
         units = "ft";
-    } else if(units == "yards" || units == "yrds"){
+    } else if(units == "yards" || units == "yd"){
         units = "yd";
     } else if(units == "meters" || units == "m"){
         units = "m";
@@ -63,7 +63,7 @@ function main(){
     }
 
     while(true){
-        let user_unit2 = readline.question('Enter units: ');
+        let user_unit2 = readline.question('Enter units into which to be converted: ');
         let result2 = normalize_units(user_unit2);
         
         if(result2 != ""){
@@ -76,7 +76,7 @@ function main(){
 
     let conversion_rate = u_to_m[units];
     let to_m = unitsToMeters(dist, conversion_rate);
-    let to_u = metersToUnits(to_m, conversion_rate);
+    let to_u = metersToUnits(to_m, u_to_m[units2]);
     console.log(`${dist} ${units} is ${to_u} ${units2}`);
 };
 
