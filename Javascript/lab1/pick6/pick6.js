@@ -45,7 +45,7 @@ function main(){
     }
 
     console.log(`You spent: $${expenses} and won $${winnings}.`);
-    console.log((expenses - winnings) / expenses);
+    console.log(`ROI: ${(expenses - winnings) / expenses}`);
     
 };
 
