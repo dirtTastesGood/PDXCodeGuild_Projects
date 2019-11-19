@@ -1,6 +1,21 @@
+function normalize_units(units) {
+    if(units == "miles" || units == "mi") {
+        units = "mi";
+    } else if(units == "feet" || units == "ft"){
+        units = "ft";
+    } else if(units == "meters" || units == "m"){
+        units = "m";
+    } else if(units == "kilometers" || units == "km"){
+        units = "km";
+    } else {
+        units = "";
+    }
+
+    return units
+}
 
 function units_to_meters(distance, units) {
-    const u_to_m = {"feet":.3048, "meters":1};
+    const u_to_m = {"ft":.3048, "km": 1609.34, "m":1, "mi":1609.34};
     
     let new_dist = distance * u_to_m[units];
 
@@ -10,10 +25,10 @@ function units_to_meters(distance, units) {
 function main(){
     const readline = require('readline-sync');
     let dist = 0;
-    let units = "feet";
+    let units = "";
 
     while(true){
-        let user_dist = parseInt(readline.question('Enter distance in feet: '));
+        let user_dist = parseInt(readline.question('Enter distance: '));
 
         if(user_dist){
             dist = user_dist;
@@ -22,13 +37,22 @@ function main(){
             console.log("That is not a valid number.\n");
         }
     }
-
-
-    console.log(`${dist} ${units} is ${units_to_meters(dist, units)} meters`);
-
-
+    
+    while(true){
+        let user_unit = readline.question('Enter units: ');
+        let result = normalize_units(user_unit);
+        
+        if(result != ""){
+            units = result;
+            break;
+        } else {
+            console.log("That is not a valid unit.\n");
+        }
+    }
+    
     let to_m = units_to_meters(dist, units);
     
+    console.log(`${dist} ${units} is ${to_m} meters`);
 };
 
 main();
