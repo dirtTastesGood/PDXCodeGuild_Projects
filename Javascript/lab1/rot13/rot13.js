@@ -37,7 +37,6 @@ function main(){
     let rotation = parseInt(readline.question("Please enter the rotation: "));
 
     console.log(`Rotated: ${rotateString(userString, rotation)}`);
-
 };
 
 main();
