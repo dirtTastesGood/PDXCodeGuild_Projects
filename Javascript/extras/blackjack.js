@@ -28,12 +28,19 @@ function getScore(cards){
                     "j": 10,
                     "q": 10,
                     "k": 10
+                    "A": 11
     }
     
     let handScore = 0;
 
     for(let i=0; i<cards.length; i++){
-
+        if(cards[i].toLowerCase() == 'a'){
+            if(handScore + scores['A'] > 21){
+                cards[i] = 'a';
+            } else {
+                cards[i] = 'A';
+            }
+        }
         handScore += scores[cards[i]];
     }
 
