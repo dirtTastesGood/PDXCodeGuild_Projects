@@ -1,49 +1,39 @@
-
 window.addEventListener("load", function(){ 
-    function toggleActiveTask(task, buttons){
+    function deactivateTasks(curTask, curButtons){
+        let openTasks = document.getElementsByName('open-task');
+        let buttons = document.getElementsByName('task-buttons');
 
-        
+        for(let i=0; i<openTasks.length; i++){
+            if(openTasks[i] != curTask){
+                
+                openTasks[i].classList.remove('selected-task');
+                buttons[i].classList.remove('show-buttons');
+            }
+        }
     }
     
-    let openTasks = document.getElementsByClassName('open-task');
+    function toggleActiveTask(task, buttons){
+        deactivateTasks(task, buttons);
 
-    for(let i=1; i<openTasks.length+1; i++){
-        let task = openTasks[i-1];
-        let buttons = document.getElementById('task'+i+'-btns');
-        
-        let curTask;
-        let curButtons;
-        
-        task.addEventListener('click', function(){
-    
-            if(curTask && curTask != task && curTask.classList.contains('selected-task')){
-                curTask.classList.toggle('selected-task');
-            }
-            if(curButtons && curButtons != buttons && curButtons.classList.contains('show-buttons')){
-                curButtons.classList.toggle('show-buttons');
-            }   
-            
-            task.classList.toggle('selected-task');
-            buttons.classList.toggle('show-buttons');
-        
-            curTask = task;
-            curButtons = buttons;
-            });
-        }
+        task.classList.toggle('selected-task');
+        buttons.classList.toggle('show-buttons');
+    }
 
-    let submitBtn = document.getElementById('submit-task');
-    let tasks = document.getElementById('open-tasks');
+    function createTask(task, buttons){
+        let openTasks = document.getElementsByName('open-task');
+        let tasks = document.getElementById('open-tasks');
 
-    submitBtn.addEventListener("click", function(){
         let newTask = document.createElement('div');
         let taskTitle = document.getElementById('task-title').value;
 
         newTask.classList.add('open-task');
         newTask.id = "task"+(openTasks.length+1);
+        newTask.setAttribute('name', 'open-task');
         newTask.innerHTML = taskTitle;
 
         let newButtons = document.createElement('div');
         newButtons.classList.add('task-buttons');
+        newButtons.setAttribute('name', 'task-buttons');
         newButtons.id = "task"+(openTasks.length+1)+"-btns";
 
         let deleteBtn = document.createElement('div');
@@ -61,18 +51,20 @@ window.addEventListener("load", function(){
         tasks.appendChild(newButtons);
 
         newTask.addEventListener('click', function(){
-            if(curTask && curTask != task && curTask.classList.contains('selected-task')){
-                curTask.classList.toggle('selected-task');
-            }
-            if(curButtons && curButtons != buttons && curButtons.classList.contains('show-buttons')){
-                curButtons.classList.toggle('show-buttons');
-            }   
-            
-            task.classList.toggle('selected-task');
-            buttons.classList.toggle('show-buttons');
-
-            curTask = task;
-            curButtons = buttons;
+            toggleActiveTask(newTask, newButtons);
         });
-    });
+    }
+    
+    function main(){
+        let openTasks = document.getElementsByClassName('open-task');
+        
+        let submitBtn = document.getElementById('submit-task');
+    
+        submitBtn.addEventListener("click", function(){
+            createTask();
+        });
+    }
+
+    main();
 });
+
