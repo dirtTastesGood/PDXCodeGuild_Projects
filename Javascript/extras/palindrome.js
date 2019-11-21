@@ -21,12 +21,23 @@ function isPalindrome(aString, index=0){
 }
 
 function main(){
-    console.log(isPalindrome("t a  co cat"));
-    console.log(isPalindrome("t a  co cadt"));
-    console.log(isPalindrome("A nut for a jar of tuna"));
-    
+    const readline = require('readline-sync');
 
+    while(true){
 
+        userString = readline.question('Enter a word or phrase to check if it is a palindrome (enter \'q\' to quit): ');
+
+        if(userString.toLowerCase() === 'q'){
+            break
+        } else {
+            let palindrome = isPalindrome(userString);
+
+            let msg;
+            palindrome ?  msg = "is a palindrome." : msg = "is not a palindrome.";
+
+            console.log(`\n\"${userString}\" ${msg}`)
+        }
+    }
 
 }
 
