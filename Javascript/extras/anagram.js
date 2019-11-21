@@ -7,7 +7,7 @@ function isAnagram(string1, string2){
 
     while(true){
         let char1 = string1.pop();
-        let index = string2.indexOf(char1);
+        let index = string2.indexOf(char1); //returns -1 if char1 not found in string2
 
         if(index < 0){
             return false
@@ -39,7 +39,6 @@ function main(){
         }
 
         console.log(msg);
-        
     }
 }
 
