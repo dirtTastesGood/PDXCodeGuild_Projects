@@ -27,7 +27,7 @@ function getScore(cards){
                     "10":10,
                     "j": 10,
                     "q": 10,
-                    "k": 10
+                    "k": 10,
                     "A": 11
     }
     
