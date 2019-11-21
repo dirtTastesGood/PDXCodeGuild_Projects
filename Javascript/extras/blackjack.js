@@ -1,3 +1,18 @@
+function giveAdvice(score){
+    let msg;
+    if(score < 17){
+        msg = "You should hit.";
+    } if(score >= 17 && score < 21){
+        msg = "You should stay."
+    } if(score == 21) {
+        msg = "Blackjack";
+    } if(score > 21) {
+        msg = "You busted."
+    }
+
+    return msg
+}
+
 function getScore(cards){
 
     const scores = {"a":11,
@@ -13,19 +28,12 @@ function getScore(cards){
                     "j": 10,
                     "q": 10,
                     "k": 10
-                    // "A": 11
     }
     
     let handScore = 0;
 
     for(let i=0; i<cards.length; i++){
-        // if(cards[i].toLowerCase() == 'a'){
-        //     if(handScore + scores['A'] > 21){
-        //         cards[i] = 'a';
-        //     } else {
-        //         cards[i] = 'A';
-        //     }
-        // }
+
         handScore += scores[cards[i]];
     }
 
@@ -46,7 +54,11 @@ function main(){
         }
     }    
 
-    console.log(getScore(cards));
+    let score = getScore(cards);
+    let msg = giveAdvice(score);
+
+    console.log(msg);
+    
     
 }
 
