@@ -4,22 +4,17 @@ $(document).ready(function(){
         let $tasks = $("#open-task");
         
         let $newTask = $('<div>');
-        $newTask.attr('id', "task"+$tasks.length);
+        $newTask.attr('id', "task"+($tasks.length +  1));
         $newTask.addClass('open-task');
         
         $taskTitle = $('#task-title');
         $newTask.html($taskTitle.val());
         $taskTitle.val('');
 
-        $newTask.click(function(event){
-            // $fn.deactivateTasks(event);
-            $.fn.toggleActiveTask(event);
-        });
-
         let $newButtons = $('<div>');
         $newButtons.addClass('task-buttons');
-        $newButtons.attr('id', 'task'+$tasks.length+"-btns");
-        
+        $newButtons.attr('id', 'task'+($tasks.length + 1)+'-btns');    
+
         let $deleteBtn = $('<div>');
         $deleteBtn.addClass('task-btn');
         $deleteBtn.html('Delete');
@@ -37,13 +32,33 @@ $(document).ready(function(){
         $newButtons.append($deleteBtn);
         $newButtons.append($completeBtn);
 
+        $newTask.click(function(event){
+            // $fn.deactivateTasks(event);
+            $.fn.toggleActiveTask(event);
+        });
+
         $openTasks.append($newTask);
         $openTasks.append($newButtons);
     }
 
     $.fn.toggleActiveTask = function(event){
-        console.log(event);
+        let $task = $(event.target);
+        let $taskId = $task.attr('id');
+
+        $task.addClass('selected-task');
+        console.log($taskId);
+        $btnsId = $taskId+'-btns';
+        console.log($btnsId);
+
+        let $btns = $($btnsId);
+
+        // $btns.css('background-color', 'red');
+        console.log($task);
+        console.log($btns);
         
+        
+        // $task.addClass('selected-task');
+        // $btns.addClass('show-buttons');
     }
 
     $.fn.main = function(){
