@@ -26,7 +26,7 @@ $(document).ready(function(){
         $completeBtn.addClass('task-btn');
         $completeBtn.html('Completed');
         $completeBtn.click(function(event){
-            // $.fn.moveTask(event);
+            $.fn.moveTask(event);
         });
 
         $newButtons.append($deleteBtn);
@@ -62,14 +62,30 @@ $(document).ready(function(){
         let $openTasks = $('#open-tasks');
 
         let $taskId = event.target.parentElement.id;
-        $taskId = $taskId.replace("-btns", "");
+        $taskId = $taskId.replace('-btns', '');
         let $task = $(`#${$taskId}`);
 
         $task.remove();
         event.target.parentElement.remove();
-        
     }
 
+    $.fn.moveTask = function(event){
+        let $openTasks = $('#open-tasks');
+        let $completedTasks = $('#completed-tasks');
+
+        let $taskId = event.target.parentElement.id;
+        $taskId = $taskId.replace('-btns', '');
+        let $task = $(`#${$taskId}`);
+
+        $task.removeClass('selected-task');
+        $task.addClass('completed-task');
+
+        $task.click(function(event){
+            event.target.remove();
+        });
+        $completedTasks.append($task);
+        event.target.parentElement.remove();
+    }
     $.fn.main = function(){
         $('#submit-task').click(function(){
             $.fn.createTask();

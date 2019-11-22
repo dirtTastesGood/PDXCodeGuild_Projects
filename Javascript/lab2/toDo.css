@@ -41,6 +41,7 @@ h1 {
 .add-task-form button {
     background-color: #5d5d81;
     color: #fefcfd;
+    font-size: 1.5rem;
     margin: 30px;
 }
 
