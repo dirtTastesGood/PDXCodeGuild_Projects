@@ -12,7 +12,7 @@ h1 {
     background-color: #3b3355;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    min-height: 100vh;
     text-align: center;
     width: 25vw;
 }
@@ -21,8 +21,10 @@ h1 {
     background-color: #bfcde0;
     border: 3px solid #000505;
     border-radius: 15px;
+    margin: 25px;
     padding: 30px;
-    width: 75%;
+    position: fixed;
+    width: 15vw;
 }
 
 .add-task-form label {
@@ -33,7 +35,7 @@ h1 {
     font-size: 1.2rem;
     padding:5px;
     margin-top: 15px;
-    width: 80%;
+    width: 100%;
 }
 
 .add-task-form button {
@@ -66,7 +68,6 @@ h1 {
 
 .selected-task {
     background-color: #5f94df;
-
 }
 
 .task-buttons {
@@ -90,9 +91,18 @@ h1 {
     transform: scale(1);
 }
 .completed-tasks {
+    align-items: center;
     background-color: #bfcde0;
-    grid-area: completed;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 40vw;
+}
+
+.completed-task {
+    background-color: #bfcde0;
+    border: 2px solid #75a3e2;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    padding: 15px;
+    text-decoration: line-through;
 }
