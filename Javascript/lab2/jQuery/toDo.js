@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $.fn.createTask = function(){
         let $openTasks = $("#open-tasks");
-        let $tasks = $("#open-task");
-        
+        let $tasks = $(".open-task");
+
         let $newTask = $('<div>');
         $newTask.attr('id', "task"+($tasks.length +  1));
         $newTask.addClass('open-task');
@@ -42,23 +42,20 @@ $(document).ready(function(){
     }
 
     $.fn.toggleActiveTask = function(event){
-        let $task = $(event.target);
+        let $curTask = $('.selected-task');
+        $curTask.toggleClass('selected-task');
+        
+        let $curButtons = $('.show-buttons');
+        $curButtons.toggleClass('show-buttons');
+        
+        let $task = $(`#${event.target.id}`);
         let $taskId = $task.attr('id');
 
-        $task.addClass('selected-task');
-        console.log($taskId);
-        $btnsId = $taskId+'-btns';
-        console.log($btnsId);
-
+        $btnsId = `#task${$taskId.replace("task","")}-btns`;
         let $btns = $($btnsId);
 
-        // $btns.css('background-color', 'red');
-        console.log($task);
-        console.log($btns);
-        
-        
-        // $task.addClass('selected-task');
-        // $btns.addClass('show-buttons');
+        $task.toggleClass('selected-task');
+        $btns.toggleClass('show-buttons');
     }
 
     $.fn.main = function(){
