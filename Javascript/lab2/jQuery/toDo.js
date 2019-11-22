@@ -90,7 +90,6 @@ $(document).ready(function(){
         $('#submit-task').click(function(){
             $.fn.createTask();
         });
-
     }
 
     $.fn.main();
