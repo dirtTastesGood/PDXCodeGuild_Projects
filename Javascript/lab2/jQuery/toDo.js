@@ -43,19 +43,25 @@ $(document).ready(function(){
 
     $.fn.toggleActiveTask = function(event){
         let $curTask = $('.selected-task');
-        $curTask.toggleClass('selected-task');
-        
         let $curButtons = $('.show-buttons');
-        $curButtons.toggleClass('show-buttons');
-        
         let $task = $(`#${event.target.id}`);
         let $taskId = $task.attr('id');
+        
+        if($curTask.attr('id') != $task.attr('id')){
+            $curTask.toggleClass('selected-task');
+            $curButtons.toggleClass('show-buttons');
+        }
+        
+        console.log(`curTask: ${$curTask.attr('id')}`);
+        console.log(`task: ${$task.attr('id')}`);
+        
 
         $btnsId = `#task${$taskId.replace("task","")}-btns`;
         let $btns = $($btnsId);
-
+        
         $task.toggleClass('selected-task');
         $btns.toggleClass('show-buttons');
+        
     }
 
     $.fn.main = function(){
