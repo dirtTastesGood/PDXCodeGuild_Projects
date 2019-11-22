@@ -19,7 +19,7 @@ $(document).ready(function(){
         $deleteBtn.addClass('task-btn');
         $deleteBtn.html('Delete');
         $deleteBtn.click(function(event){
-            // $.fn.deleteTask(event);
+            $.fn.deleteTask(event);
         });
 
         let $completeBtn = $('<div>');
@@ -33,7 +33,6 @@ $(document).ready(function(){
         $newButtons.append($completeBtn);
 
         $newTask.click(function(event){
-            // $fn.deactivateTasks(event);
             $.fn.toggleActiveTask(event);
         });
 
@@ -51,16 +50,23 @@ $(document).ready(function(){
             $curTask.toggleClass('selected-task');
             $curButtons.toggleClass('show-buttons');
         }
-        
-        console.log(`curTask: ${$curTask.attr('id')}`);
-        console.log(`task: ${$task.attr('id')}`);
-        
 
         $btnsId = `#task${$taskId.replace("task","")}-btns`;
         let $btns = $($btnsId);
         
         $task.toggleClass('selected-task');
         $btns.toggleClass('show-buttons');
+    }
+
+    $.fn.deleteTask = function(event){       
+        let $openTasks = $('#open-tasks');
+
+        let $taskId = event.target.parentElement.id;
+        $taskId = $taskId.replace("-btns", "");
+        let $task = $(`#${$taskId}`);
+
+        $task.remove();
+        event.target.parentElement.remove();
         
     }
 
