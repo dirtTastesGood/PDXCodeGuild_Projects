@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.msg {
+    padding: 25px;
+}
