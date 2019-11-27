@@ -12,7 +12,7 @@ const callApi = () => {
 }
 
 const displayQuote = response => {
-    const qBody = document.querySelector('#quote-body');
+    const qBody = document.querySelector('#quote-text');
     const qAuthor = document.querySelector('#quote-author');    
 
     let quote = response.quotes[ Math.floor(Math.random() * response.quotes.length)]
