@@ -6,51 +6,197 @@
 
 .container {
     align-items: center;
-    background-color: rgb(122, 151, 151);
+    background-image: linear-gradient( #7a9797, #245c5c);
     display: flex;
-    height: 100vh;
+    flex-direction: column;
     justify-content: center;
     width: 100vw;
 }
 
 #main-quote {
-    color: #0f3030;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    width: 90vw;
 }
 
 #quote-body {
     align-items: center;
     display: flex;
     font-size: 4rem;
+    justify-content: center;
     text-align: center;
 }
 
 #quote-text {
+    color: #0c2e2e;
     padding-top: 30px;
 }
 
 #quote-author {
+    color: #153d3d;
     font-family: sans-serif;
     font-size: 2rem;
     letter-spacing: 1rem;
     line-height: 4rem;
-    opacity: .7;
+    margin-bottom: 10vh;
+    opacity: .8;
     padding: 25px;
     text-align: center;
 }
 
 .huge-bracket {
+    color: #153d3d;
     font-size: 15rem;
+    opacity: .6;
     padding: 15px;
     width: 5vw;
 }
 
 .huge-bracket-left {
     float: left;
-
 }
 
 .huge-bracket-right {
     float: right;
 }
+
+.ellipses {
+    color: #153d3d;
+    font-size: 5rem;
+    margin-bottom: 10vh;
+    text-align: center;
+}
+
+#quotes-list-container {
+    align-items: center;
+    background-image: linear-gradient(#4f7a7a, #153d3d);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.filter-form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 5vh;
+    width: 100%;
+}
+
+.filter-form {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 70%;
+}
+
+.filter-form label {
+    color: #0c2e2e;
+    font-family: sans-serif;
+    font-size: 2rem;
+    letter-spacing: .6rem;
+}
+
+#filter-input {
+    background-color: #3d6161;
+    color: #7a9797;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+#search-by {
+    background-color: #3d6161;
+    color: #7a9797;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+#submit {
+    background-color: #3d6161;
+    color: #7a9797;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+#submit:hover {
+    background-color: #7a9797;
+    color: #3d6161;
+}
+
+#filtered-results-container {
+    display: flex;
+    width: 90vw;
+}
+
+#author-list {
+    align-items: center;
+    background-color: #7a9797;
+    border: 2px solid #194141;
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    margin: 25px;
+    width: 15%;
+}
+
+#author-list .author-list-label {
+    color: #0c2e2e;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: .3rem;
+    padding: 10px;
+}
+
+#author-list .author-name {
+    color: #153d3d;
+    font-size: 1.3rem;
+}
+
+#quotes-list {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    width: 75%;
+}
+
+.quote-card {
+    background-color: #7a9797;
+    border: 2px solid #194141;
+    min-height: 20vh;
+    width: 100%;
+}
+
+.quote-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+.quote-card .quote-body {
+    align-items: center;
+    background-color: #5f7777;
+    border: 2px dashed #194141;
+    color: #0c2e2e;
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.quote-card .quote-author {
+    color: #153d3d;
+    font-family: sans-serif;
+    font-size: 2rem;
+    letter-spacing: .5rem;
+    opacity: .9;
+    padding: 25px;
+    text-align: center;
+}
+
