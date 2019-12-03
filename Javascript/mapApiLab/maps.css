@@ -1,19 +1,20 @@
 .map-container {
-    align-items: center;
+    /* align-items: center; */
     background-color: #16302b;
     display: flex;
-    flex-direction: column;
     height: 100vh;
+    justify-content: center;
     width: 100vw;
 }
 
-.map {
+#map {
     background-color: #eaeaea;
-    border-radius: 50%;
-    height: 90vh;
-    margin: 25px;
-    max-height: 90vw;
-    max-width: 90vh;
-    width: 90vw;
+    border: 10px solid #85b79d;
+    border-radius: 50%; 
+    height: 95vh;
+    margin: 20px;
+    max-height: 95vw;
+    max-width: 95vh;
+    width: 95vw;
 }
 
