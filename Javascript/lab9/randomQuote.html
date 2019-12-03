@@ -15,9 +15,9 @@
     <div class="container">
         <div id="main-quote">
             <div id="quote-body">
-                <div class="huge-bracket huge-bracket-left">{</div>
+                <div class="huge-bracket">{</div>
                 <div id="quote-text"></div>
-                <div class="huge-bracket huge-bracket-right">}</div>
+                <div class="huge-bracket">}</div>
             </div>
 
             <div id="quote-author"></div>
@@ -28,14 +28,15 @@
             <form action="#" class='filter-form'>
                 <div>
                     <label for="filter-input">Search for:</label>
-                    <input type="text" id="filter-input">
+                    <input type="text" id="filter-input" place-holder="love" value="love">
                 </div>
 
                 <div>
                     <label for="search-by">Search by:</label>
-                    <select name="search-by" id="search-by">
+                    <select name="search-by" id="search-by" selected="word">
                         <option value="word">Word</option>
                         <option value="tag">Tag</option>
+                        <option value="author">Author</option>
                     </select>
                 </div>
                 <button type="submit" id="submit">Submit</button>
@@ -44,15 +45,21 @@
 
         <div id="filtered-results-container">
             <div id="quotes-list">
-                <div class="quote-card">
+               
+                <!-- <div class="quote-card">
                     <div class="quote-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus vitae hic a fugiat illo blanditiis eum! Consequatur ipsum quisquam, fugit ab necessitatibus temporibus provident laborum, ex molestiae, dolore fugiat ullam!</div>
                     <div class="quote-author">Author</div>
-                </div>
+                    <div class="tag-list">
+                        <div class="tag" id="tag1">tag 1</div>
+                        <div class="tag" id="tag2">tag 2</div>
+                        <div class="tag" id="tag3">tag 3</div>
+                    </div>
+                </div> -->
             </div>
-            <div id="author-list">
+            <!-- <div id="author-list">
                 <div class="author-list-label">Authors:</div>
                 <div class="author-name">Lorem, ipsum.</div>
-            </div>
+            </div> -->
         </div>
     </div>
     <script src="./secrets.js"></script>

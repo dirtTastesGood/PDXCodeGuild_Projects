@@ -51,15 +51,7 @@
     font-size: 15rem;
     opacity: .6;
     padding: 15px;
-    width: 5vw;
-}
-
-.huge-bracket-left {
-    float: left;
-}
-
-.huge-bracket-right {
-    float: right;
+    text-align: center;
 }
 
 .ellipses {
@@ -153,7 +145,7 @@
     display: flex;
     flex-direction: column;
     margin: 25px;
-    width: 70%;
+    width: 100%;
 }
 
 .quote-card {
@@ -194,3 +186,18 @@
     text-align: center;
 }
 
+.tag-list {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    width: 50%;
+}
+
+.tag {
+    color: #0c2e2e;
+    background-color: #5f7777;
+    border: 2px dashed #194141;
+    font-family: sans-serif;
+    margin: 5px;
+    padding: 10px;
+}

@@ -1,8 +1,18 @@
-const callApi = (page=1, filter) => {
-
+const callApi = (filter, filterType="", page=1) => {
     filter = filter.replace("\"", "");
 
-    let url = `https://favqs.com/api/quotes/?page=${page}&filter=${filter}`;
+    let url;
+
+    if(filterType == ""){
+        url = `https://favqs.com/api/quotes/?page=${page}&filter=${filter}`;
+    } else {
+        filterType = filterType.replace("\"", "");
+        console.log(`type: ${filterType}`);
+        
+        
+        url = `https://favqs.com/api/quotes/?filter=${filter}&type=${filterType}&page=${page}`;
+        console.log(`url: ${url}`);
+    }
 
     axios.get(url, {
         headers: {
@@ -32,7 +42,16 @@ const buildQuoteCard = index => {
     lilQAuthor.id = `quote-author-${index}`
     newQuote.append(lilQAuthor);
 
+    let lilQTagList = document.createElement('div');
+    lilQTagList.classList.add('tag-list');
+    lilQTagList.id = `tag-list-${index}`;
+    newQuote.append(lilQTagList);
+
     quotesList.append(newQuote);
+}
+
+const displayAuthors = response => {
+
 }
 
 const displayQuotes = response => {
@@ -43,19 +62,40 @@ const displayQuotes = response => {
 
     let quote = response.quotes[ Math.floor(Math.random() * response.quotes.length)]
 
-    bigQBody.innerText = quote.body;
-    bigQAuthor.innerText = quote.author;
+    bigQBody.innerHTML = quote.body;
+    bigQAuthor.innerHTML = quote.author;
 
     for(let i=0; i<response.quotes.length; i++){
         buildQuoteCard(i);
 
         let qBody = document.querySelector(`#quote-body-${i}`);
         let qAuthor = document.querySelector(`#quote-author-${i}`);
+        let qTags = document.querySelector(`#tag-list-${i}`);
 
-        qBody.innerText = response.quotes[i].body;
-        qAuthor.innerText = response.quotes[i].author;
+        qBody.innerHTML = response.quotes[i].body;
+        qAuthor.innerHTML = response.quotes[i].author;
+
+        for(let j=0; j<response.quotes[i].tags.length; j++){
+            let tag = document.createElement('div');
+            tag.classList.add('tag');
+            tag.innerHTML = response.quotes[i].tags[j];
+            qTags.append(tag);
+        }
+        
     }
-
 }
 
-callApi(2,"inspiration");
+const submitForm = () => {
+    let filter = document.querySelector('#filter-input').value;
+    let filterType = document.querySelector('#search-by').value
+    
+    callApi(filter, filterType, page=1); // page variable hardcoded until pagination added
+}
+
+const submitBtn = document.querySelector('#submit');
+submitBtn.addEventListener('click', () => {
+    console.log("CALLED");
+
+    submitForm();
+    
+});
