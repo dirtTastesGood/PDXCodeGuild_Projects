@@ -33,32 +33,40 @@ const generateMarkers = (map, markerCount) => {
     }
 }
 
-const buildPopup = (response,marker) => {
-    console.log(response);
+const buildPopup = (response='error', marker) => {
+    console.log(response.data);
+    let content;
 
-    let latitude = response.data.coord.lat;
-    let longitude = response.data.coord.lon;
-    let temp = response.data.main.temp;
-    let weather = response.data.weather[0].main;
+    if(response.data){
+        let latitude = response.data.coord.lat;
+        let longitude = response.data.coord.lon;
+        let temp = response.data.main.temp;
+        let weather = response.data.weather[0].main;
+    
+        content = `Latitude: ${latitude}<br/>Longitude: ${longitude}<br/>Temperature: ${temp}&#8457;<br/>Weather: ${weather}`
+    } else {
+        content = 'Sorry, no data available';
+    }
 
-    let content = `Latitude: ${latitude}<br/>Longitude: ${longitude}<br/>Temperature: ${temp}&#8457;<br/>Weather: ${weather}`
     marker.bindPopup(content).openPopup();
 }
 
-const getWeather = (lat,lng,marker) => {
+const getWeather = (lat, lng, marker) => {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=imperial&appid=${open_weather_api_key}`
     
     axios.get(url)
     .then(response => {
-        
         buildPopup(response, marker);
-    });
+    })
+    .catch(error => {
+        buildPopup(error, marker);
+    })
 }
 
 const main = () => {
     let lat = 45.523064;
     let lng = -122.676483;
-    let zoom = 3;
+    let zoom = 2;
     
     const myMap = generateMap(lat,lng,zoom);
     generateMarkers(myMap, 10);

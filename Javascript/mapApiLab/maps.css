@@ -1,5 +1,5 @@
 .map-container {
-    /* align-items: center; */
+    align-items: center;
     background-color: #16302b;
     display: flex;
     justify-content: center;
@@ -19,4 +19,13 @@
 
 .leaflet-control-attribution.leaflet-control{
     display: none;
+}
+
+.weather-info {
+    align-items: center;
+    background-color: #85b79d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
 }
