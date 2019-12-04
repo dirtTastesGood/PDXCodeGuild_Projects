@@ -2,19 +2,21 @@
     /* align-items: center; */
     background-color: #16302b;
     display: flex;
-    height: 100vh;
     justify-content: center;
+    padding-bottom: 50px;
     width: 100vw;
 }
 
 #map {
     background-color: #eaeaea;
     border: 10px solid #85b79d;
-    border-radius: 50%; 
-    height: 95vh;
+    height: 90vh;
     margin: 20px;
-    max-height: 95vw;
-    max-width: 95vh;
-    width: 95vw;
+    max-height: 90vw;
+    max-width: 90vh;
+    width: 90vw;
 }
 
+.leaflet-control-attribution.leaflet-control{
+    display: none;
+}
