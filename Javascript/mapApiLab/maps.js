@@ -23,8 +23,36 @@ const generateMarkers = (map, markerCount) => {
         let lat = Math.random() * (bottom - top) + top;
         let lng = Math.random() * (right - left) + left;
 
-        L.marker([lat,lng]).addTo(map);
+        let marker = L.marker([lat,lng]).addTo(map);
+
+        marker.addEventListener('click', () => {
+            let latLng = marker.getLatLng();
+            
+            getWeather(latLng.lat, latLng.lng, marker);
+        });
     }
+}
+
+const buildPopup = (response,marker) => {
+    console.log(response);
+
+    let latitude = response.data.coord.lat;
+    let longitude = response.data.coord.lon;
+    let temp = response.data.main.temp;
+    let weather = response.data.weather[0].main;
+
+    let content = `Latitude: ${latitude}<br/>Longitude: ${longitude}<br/>Temperature: ${temp}&#8457;<br/>Weather: ${weather}`
+    marker.bindPopup(content).openPopup();
+}
+
+const getWeather = (lat,lng,marker) => {
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=imperial&appid=${open_weather_api_key}`
+    
+    axios.get(url)
+    .then(response => {
+        
+        buildPopup(response, marker);
+    });
 }
 
 const main = () => {
