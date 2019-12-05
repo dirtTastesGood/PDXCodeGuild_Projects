@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./site.css">
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <title>js DOM/API review</title>
 </head>
 <body>
     <div class="container">
-        <div class="item">style mah flar and MEK MEH PRETTAYYYY!!!!! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･<span>*\(◕ ﺮ ◕✿)</span></div>
-        <div class="item">reach into that div down there and gimme them cookays!!!! <span>'cookies go here'</span> => (￣﹃￣)</div> 
+        <div class="item1">style mah flar and MEK MEH PRETTAYYYY!!!!! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･<span>*\(◕ ﺮ ◕✿)</span></div>
+        <div class="item">reach into that div down there and <span class="gimme-btn">gimme</span> them cookays!!!! <span id="cookies">'cookies go here'</span> => (￣﹃￣)</div>
         <div class="item" id='cookie-jar'>🍪🍪</div>
-        <div>create a new identity for me! i'm on the run! ૮( ᵒ̌皿ᵒ̌ )ა</div>
+        <div>create a new identity for me! i'm on the run! <span class="mofo">૮( ᵒ̌皿ᵒ̌ )ა</span> - Yo</div>
         <p>pull data from <a target="_blank" rel="noopener noreferrer" href="https://randomuser.me/">this api</a> and give that shady mofo a new life!</p>
         <div>
             <ul>
-                <li>name: </li>
-                <li>username: </li>
-                <li>email: </li>
-                <li>phone: </li>
-                <li>street: </li>
-                <li>city: </li>
-                <li>state: </li>
-                <li>zip: </li>
+                <li id="name">name:&nbsp;</li>
+                <li id="username">username:&nbsp;</li>
+                <li id="email">email:&nbsp;</li>
+                <li id="phone">phone:&nbsp;</li>
+                <li id="street">street:&nbsp;</li>
+                <li id="city">city:&nbsp;</li>
+                <li id="state">state:&nbsp;</li>
+                <li id="zip">zip:&nbsp;</li>
             </ul>
         </div>
     </div>

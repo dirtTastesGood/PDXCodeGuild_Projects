@@ -11,6 +11,11 @@
     margin-bottom: 15px;
 }
 
+.item1 {
+    margin-top: 50px;
+    padding: 20px;
+}
+
 #cookie-jar {
     border: 1px solid black;
     padding-top: 10px;
@@ -25,4 +30,22 @@ ul {
 
 li {
     margin: 15px;
+}
+
+.gimme-btn {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.gimme-btn:hover {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+.mofo {
+    color: #f3bb7c;
+    font-family: sans-serif;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #ad5f06;
 }
