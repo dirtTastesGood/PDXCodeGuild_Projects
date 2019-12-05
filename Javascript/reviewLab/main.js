@@ -68,4 +68,5 @@ for(let i=0; i<firstLine.innerText.length; i++){
 firstLine.remove();
 container.prepend(newFirstLine);
 
+
 callAPI();
