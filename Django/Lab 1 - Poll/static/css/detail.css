@@ -1,0 +1,31 @@
+#question-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.poll-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.choice {
+    padding: 5px;
+    margin: 5px;
+}
+
+.choice-label {
+    padding: 10px;
+}
+
+.submit-btn {
+    margin: 10px;
+    padding: 5px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(47, 6, 112);
+    color: rgb(164, 138, 207);
+}
