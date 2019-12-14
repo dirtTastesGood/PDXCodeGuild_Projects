@@ -1,0 +1,13 @@
+.results {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.results-list {
+    list-style: none;
+}
+
+.result-item {
+    padding: 5px;
+}
