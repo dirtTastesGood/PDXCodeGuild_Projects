@@ -1,4 +1,9 @@
 from django.shortcuts import render
 
+from .models import ToDoItem
+
 def index(request):
-    return render(request, 'ToDoItem/index.html')
+
+    items = ToDoItem.objects.all()
+
+    return render(request, 'ToDoItem/index.html', {'items':items})
