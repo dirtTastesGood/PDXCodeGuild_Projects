@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    <h1>Hello</h1>
-    {{ items }}
+    <div class="task-list-container">
+        <h1>To Do:</h1>
+        <span class="new-task-link"><a href="#">+</a></span>
+        
+        <div class="task-list">
+            <ul>
+                {% for task in tasks %}
+                    <li class="task-list-item">
+                        {{ task.title }}
+                    </li>
+                {% empty %}
+                    <p class="empty-list">You've don't have any tasks.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,10 @@ from .models import ToDoItem
 
 def index(request):
 
-    items = ToDoItem.objects.all()
+    tasks = ToDoItem.objects.all()
 
-    return render(request, 'ToDoItem/index.html', {'items':items})
+    context = {
+        'tasks':tasks,
+    }
+
+    return render(request, 'ToDoItem/index.html', context)
