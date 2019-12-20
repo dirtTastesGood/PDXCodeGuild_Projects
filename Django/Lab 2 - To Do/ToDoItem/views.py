@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import ToDoItem
 
@@ -10,11 +10,11 @@ def index(request):
         'tasks':tasks,
     }
 
-    return render(request, 'ToDoItem/index.html', context)
+    return render(request, 'toDoItem/index.html', context)
 
 def create(request):
     if(request.method == 'GET'):
-        return render(request, 'ToDoItem/new.html')
+        return render(request, 'toDoItem/new.html')
     elif(request.method == 'POST'):
         new_task_title = request.POST['title']
         new_task_text = request.POST['task_text']
@@ -28,7 +28,21 @@ def create(request):
 
 
 def show(request, id):
-    pass
+    print()
+
+    print()
+    print()
+
+    print()
+
+    print(id)
+    task = get_object_or_404(ToDoItem, pk=id)
+
+    context = {
+        'task':task,
+    }
+
+    return render(request, 'toDoItem/show.html/', context)
 
 def edit(request, id):
     pass

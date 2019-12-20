@@ -32,11 +32,6 @@ h1 {
     text-shadow: 0 0 5px rgb(245, 220, 201);
 }
 
-.empty-list {
-    color:rgb(44, 19, 0);
-    font-size: 2rem;
-    padding-top: 30px;
-}
 
 .new-task-link a{
     color:  rgb(245, 220, 201);
@@ -49,4 +44,34 @@ h1 {
 .new-task-link a:hover {
     color: rgb(44, 19, 0);
     text-shadow: 0 0 5px rgb(245, 220, 201);
+}
+
+.empty-list {
+    color:rgb(44, 19, 0);
+    font-size: 2rem;
+    padding-top: 30px;
+}
+
+.task-list {
+    border: 1px solid rgb(44, 19, 0);
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.task-list-item {
+    list-style: none;
+    padding: 10px;
+}
+
+.task-list-item a{
+    color:  rgb(228, 153, 95);
+    text-decoration: none;
+    text-shadow: 0 0 5px rgb(44, 19, 0);
+}
+
+.task-list-item a:hover{
+    color:  rgb(44, 19, 0);
+    text-decoration: none;
+    text-shadow: 0 0 5px rgb(228, 153, 95);
 }
