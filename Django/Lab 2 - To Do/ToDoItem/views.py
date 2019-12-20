@@ -13,7 +13,19 @@ def index(request):
     return render(request, 'ToDoItem/index.html', context)
 
 def create(request):
-    pass
+    if(request.method == 'GET'):
+        return render(request, 'ToDoItem/new.html')
+    elif(request.method == 'POST'):
+        new_task_title = request.POST['title']
+        new_task_text = request.POST['task_text']
+
+        task = ToDoItem.objects.create(
+            title=new_task_title, 
+            task_text=new_task_text
+        )
+
+        return redirect('/')
+
 
 def show(request, id):
     pass

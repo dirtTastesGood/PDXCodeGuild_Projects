@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1>Add a task</h1>
 
+    <div class="new-task-form-container">
+        <form action="http://127.0.0.1:8000/new/" method="POST">
+            {% csrf_token %}
+            Title: <input type="text" name="title"><br/>
+            Content: 
+            <br/><textarea name="task_text" id="task_text" cols="30" rows="10"></textarea><br/>
+            <button type="submit" class="new-task-submit-button">Add task</button>
+        </form>
+    </div>
 {% endblock %}
