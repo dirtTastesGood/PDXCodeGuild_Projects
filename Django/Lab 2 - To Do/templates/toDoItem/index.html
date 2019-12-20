@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="task-list-container">
-        <h1>To Do:</h1>
-        <span class="new-task-link"><a href="url 'create'">+</a></span>
-        
-        <div class="task-list">
+    <div class="container">
+        <div class="subcontainer">
+            <h1>To Do:</h1>
+            <span class="new-task-link"><a href="url 'create'">+</a></span>
+            
             <ul>
                 {% for task in tasks %}
                     <li class="task-list-item">
-                        <a href="url 'show' {{task.id}}">{{ task.title }}</a>
+                        <a href="show/{{task.id}}">{{ task.title }}</a>
                     </li>
                 {% empty %}
                     <p class="empty-list">You've don't have any tasks.</p>
                 {% endfor %}
-            
             </ul>
         </div>
     </div>

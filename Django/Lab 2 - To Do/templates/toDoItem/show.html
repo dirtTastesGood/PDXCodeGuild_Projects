@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="task-info"> 
-        <div class="task-title">Title:<br>
-            Lorem ipsum dolor sit amet.
-         </div>
-         <div class="task-text">
-             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut deleniti, facere similique deserunt sunt minus possimus repudiandae quisquam quasi aspernatur, nemo consectetur nisi adipisci incidunt eligendi. Laborum quia minima sint.
-         </div>
+    <div class="container"> 
+        <div class="subcontainer">
+            <div class="task-title">Title:<br/>
+                {{ task.title }}
+             </div>
+             <div class="task-text">Text:<br/>
+                {{ task.task_text }}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,0 +1,9 @@
+<div class="task-form-container">
+    <form action="{{ action_url }}" method="POST">
+        {% csrf_token %}
+        Title: <input type="text" name="title" value="{{ task.title }}"><br/>
+        Content: 
+        <br/><textarea name="task_text" id="task_text" cols="30" rows="10">{{ task.task_text }}</textarea><br/>
+        <button type="submit" class="new-task-submit-button">{{ action_type }}</button>
+    </form>
+</div>
