@@ -32,13 +32,15 @@ h1 {
     text-shadow: 0 0 5px rgb(245, 220, 201);
 }
 
+.will-transition {
+    transition: all .3s ease;
+}
 
 .new-task-link a{
     color:  rgb(245, 220, 201);
     font-size: 3rem;
     text-decoration: none;
     text-shadow: 0 0 5px rgb(44, 19, 0);
-    transition: all .3s ease;
 }
 
 .new-task-link a:hover {
@@ -80,3 +82,40 @@ h1 {
 .task-form-container {
 
 }
+
+.task-title {
+    font-family: sans-serif;
+    font-size: 3rem;
+    padding-bottom: 50px;
+}
+
+.task-text {
+    background-color: rgb(248, 193, 150);
+    border: 5px solid rgb(119, 58, 14);
+    border-radius: 15px;
+    font-family: sans-serif;
+    margin: 15px;
+    padding: 30px;
+}
+
+.task-actions-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: rgb(248, 193, 150);
+    border: 2px solid #311501;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.mark-complete-button:hover {
+    background-color: green;
+}
+
+.edit-task-button:hover {
+    background-color: yellow;
+}
+

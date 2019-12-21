@@ -3,11 +3,28 @@
 {% block content %}
     <div class="container"> 
         <div class="subcontainer">
-            <div class="task-title">Title:<br/>
-                {{ task.title }}
-             </div>
-             <div class="task-text">Text:<br/>
-                {{ task.task_text }}
+            <h1>{{ task.title }}</h1>
+             <div class="task-text">{{ task.task_text }}</div>
+             <div class="task-actions-container">
+                 {% if task.completed == False %}
+                    <div class="mark-complete">
+                        <form action="../mark_complete/{{task.id}}" method='POST'>
+                            {% csrf_token %}
+                            <button type="submit" class="mark-complete-button will-transition">Mark completed</button>
+                        </form>
+                    {% else %}
+                        <p>Completed!</p>
+                    {% endif %}
+                    </div>
+
+                    <div class="edit-task">
+                        <a href="edit/{{ task.id }}">
+                            <button class="edit-task-button will-transition">Edit</button>
+                        </a>
+                    </div>
+
+
+
             </div>
         </div>
     </div>

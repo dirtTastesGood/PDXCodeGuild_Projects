@@ -59,5 +59,14 @@ def edit(request, id):
 
         return redirect('/')
 
+def mark_complete(request, id):
+    task = ToDoItem.objects.get(id=id)
+
+    if(request.method == 'POST'):
+        task.completed = True
+        task.save()
+
+    return redirect('/')
+
 def delete(request, id):
     pass

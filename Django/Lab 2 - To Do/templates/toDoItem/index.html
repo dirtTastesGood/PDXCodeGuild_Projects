@@ -4,12 +4,12 @@
     <div class="container">
         <div class="subcontainer">
             <h1>To Do:</h1>
-            <span class="new-task-link"><a href="url 'create'">+</a></span>
+            <span class="new-task-link"><a href="url 'create'" class="will-transition">+</a></span>
             
             <ul>
                 {% for task in tasks %}
-                    <li class="task-list-item">
-                        <a href="show/{{task.id}}">{{ task.title }}</a>
+                    <li class="task-list-item will-transition">
+                        <a href="show/{{task.id}}" class="will-transition">{{ task.title }}</a>
                     </li>
                 {% empty %}
                     <p class="empty-list">You've don't have any tasks.</p>
