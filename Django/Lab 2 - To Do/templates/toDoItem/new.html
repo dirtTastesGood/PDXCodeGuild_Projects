@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% include 'toDoItem/partials/_back_to_tasks_button.html' %}
+    
     <h1>Add a task</h1>
+    
 
     {% include 'toDoItem/partials/_task_form.html' %}
     

@@ -66,7 +66,15 @@ def mark_complete(request, id):
         task.completed = True
         task.save()
 
-    return redirect('/')
+    context = {
+        'task':task,
+    }
+    
+    return render(request, 'toDoItem/show.html', context)
 
 def delete(request, id):
-    pass
+    task = ToDoItem.objects.get(id=id)
+
+    task.delete()
+
+    return redirect('/')

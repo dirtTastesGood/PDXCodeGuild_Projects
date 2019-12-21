@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Edit task</h1>
+    {% include 'toDoItem/partials/_back_to_tasks_button.html' %}
 
-    {{action_url}}
+    <h1>Edit task</h1>
 
     {% include 'toDoItem/partials/_task_form.html' %}
 
