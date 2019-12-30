@@ -1,6 +1,7 @@
 import string, random
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 
 from .models import CustomURL
 
@@ -10,27 +11,23 @@ def index(request):
 def saveurl(request):
     if(request.method == 'POST'):
 
-        print('')
-        print('')
-        print('')
+        new_code = ''
 
-        print('CALLED!')
-        print(f"long_url: {request.POST['long_url']}")
+        for i in range(6):
+            new_code += random.choice(string.ascii_lowercase + string.digits)
 
-    print('')
-    print('')
-    print('')
+        try:
+            new_url = CustomURL.objects.get(code=new_code)
+        except CustomURL.DoesNotExist:
+            new_url = CustomURL.objects.create(url=request.POST['long_url'], code=new_code)
+        return redirect('/')
 
-    new_code = ''
-
-    for i in range(6):
-        new_code += random.choice(string.ascii_lowercase + string.digits)
-
+def redirect_it(request, code):
     try:
-        new_url = CustomURL.objects.get(code=new_code)
+        row = CustomURL.objects.get(code=code)
+        url = row.url
     except CustomURL.DoesNotExist:
-        new_url = CustomURL.objects.create(url=request.POST['long_url'], code=new_code)
-    return redirect('/')
+        messages.error(request, f'{code} is not a valid code. Please try again.')
+        url = '/'
 
-def redirect_it(request):
-    pass
+    return redirect(url)
