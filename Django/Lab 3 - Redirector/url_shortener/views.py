@@ -6,7 +6,12 @@ from django.contrib import messages
 from .models import CustomURL
 
 def index(request):
-    return render(request, 'url_shortener/index.html')
+    urls = CustomURL.objects.all()
+
+    context = {
+        'urls':urls,
+    }
+    return render(request, 'url_shortener/index.html', context)
 
 def saveurl(request):
     if(request.method == 'POST'):

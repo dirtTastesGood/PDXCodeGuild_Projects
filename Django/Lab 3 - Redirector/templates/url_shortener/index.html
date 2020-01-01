@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Welcome!</h1>
-    <h2>URL too long?</h2>
-    <h3>Enter it below to shorten it!</h3>
+    <h1>URL too long?</h1>
 
-    <form action="saveurl/" method="POST">
+    <form action="saveurl/" method="POST" id="urlshorten-form">
         {% csrf_token %}
-        <input type="text" name="long_url">
-        <input type="submit">
+        <input type="text" name="long_url" id="long-url-input" placeholder="Enter URL here"><br/>
+        <input type="submit" value="Shorten it!" id="submit-button">
     </form>
+
+    <div class="urls-container">
+        <ul class="urls-list">
+            <li class="url-list-item" id="url-list-labels">
+                <span class="url-code url-code-label">Code</span>
+                <span class="url-address url-address-label">Full Address</span>
+            </li>
+            {% for url in urls %}
+                <li class="url-list-item">
+                    <span class="url-code">{{ url.code }}</span>
+                    <span class="url-address">{{ url.url|truncatechars:50 }}</span>
+                </li>
+            {% empty %}
+                <h3>No shortened URLs exist.</h3>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
 {% endblock %}
