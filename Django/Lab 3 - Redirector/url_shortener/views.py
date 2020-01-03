@@ -6,11 +6,12 @@ from django.contrib import messages
 from .models import CustomURL
 
 def index(request):
-    urls = CustomURL.objects.all()
+    urls = CustomURL.objects.all()[::-1]
 
     context = {
         'urls':urls,
     }
+
     return render(request, 'url_shortener/index.html', context)
 
 def saveurl(request):

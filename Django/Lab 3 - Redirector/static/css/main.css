@@ -6,6 +6,7 @@
     --color5: #4b2142;
     --color6: #41101c;
     --color7: #e1cbf7;
+    --color8: #75608a;
 
     --background-color: var(--color3);
     --h1: var(--color5);
@@ -15,6 +16,16 @@
 
 * {
     box-sizing: border-box;
+}
+
+a{
+    color: var(--color5);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--color2);
+    transition: all .3s ease;
 }
 
 body {
@@ -73,8 +84,8 @@ h2 {
 }
 
 #submit-button:hover {
-    background-color: var(--color5);
-    color: var(--color3);
+    background-color: var(--color1);
+    color: var(--color5);
     cursor: pointer;
 }
 
@@ -89,6 +100,7 @@ h2 {
 }
 
 #url-list-labels {
+    background-color: var(--color3);
     border: none;
     border-bottom: 8px double var(--color7);
     color: var(--color5);
@@ -99,6 +111,7 @@ h2 {
 }
 
 .url-list-item {
+    background-color: var(--color8);
     border: 1px dotted var(--color7);
     color: var(--color5);
     display: flex;

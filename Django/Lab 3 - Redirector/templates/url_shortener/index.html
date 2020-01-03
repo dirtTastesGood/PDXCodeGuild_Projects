@@ -17,7 +17,7 @@
             </li>
             {% for url in urls %}
                 <li class="url-list-item">
-                    <span class="url-code">{{ url.code }}</span>
+                    <a href="redirect/{{ url.code }}"  class="url-code"><span>{{ url.code }}</span></a>
                     <span class="url-address">{{ url.url|truncatechars:50 }}</span>
                 </li>
             {% empty %}
